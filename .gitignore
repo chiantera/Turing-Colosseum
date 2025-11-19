@@ -1,0 +1,9 @@
+# Test data
+arena_data.bin
+
+# Rust build artifacts
+team_rust/target/
+
+# C++ compiled binaries
+team_cpp/speed_demon
+team_cpp/*.o

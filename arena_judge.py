@@ -42,7 +42,7 @@ def compile_agents():
         print("⚡ Compiling Team SpeedDemon...")
         start = time.time()
         # Compile with max optimizations
-        cmd = ["g++", "-O3", "-march=native", "team_cpp/main.cpp", "-o", "team_cpp/speed_demon"]
+        cmd = ["g++", "-O3", "-march=native", "-pthread", "team_cpp/main.cpp", "-o", "team_cpp/speed_demon"]
         p = subprocess.run(cmd, capture_output=True)
         if p.returncode != 0:
             print(f"❌ C++ Compilation Failed:\n{p.stderr.decode()}")
@@ -95,14 +95,15 @@ def main():
         diff = abs(scores['rust'] - scores['cpp'])
         winner = "Rustacean" if scores['rust'] < scores['cpp'] else "SpeedDemon"
         loser = "SpeedDemon" if winner == "Rustacean" else "Rustacean"
-        
+        winner_key = "rust" if winner == "Rustacean" else "cpp"
+
         print(f"🏆 WINNER: Team {winner}")
         print(f"💀 LOSER:  Team {loser} (lagging by {diff:.4f} ms)")
-        print(f"\n📢 JUDGE ORDER: Team {loser}, rewrite your core algorithm to beat {scores[winner]:.4f} ms. You have 1 iteration.")
-        
+        print(f"\n📢 JUDGE ORDER: Team {loser}, rewrite your core algorithm to beat {scores[winner_key]:.4f} ms. You have 1 iteration.")
+
         # Write verdict to file for Claude to read
         with open("verdict.txt", "w") as f:
-            f.write(f"WINNER:{winner}\nLOSER:{loser}\nTARGET_MS:{scores[winner]}\n")
+            f.write(f"WINNER:{winner}\nLOSER:{loser}\nTARGET_MS:{scores[winner_key]}\n")
             
     else:
         print("❌ Match cancelled due to compilation errors.")
