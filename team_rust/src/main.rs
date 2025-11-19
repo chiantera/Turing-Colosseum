@@ -3,35 +3,116 @@ use std::env;
 use std::fs::File;
 use std::io;
 
-// Radix sort implementation - O(n) for 32-bit integers
+// Optimization variant selection
+// 0 = Original safe radix sort
+// 1 = sort_unstable (pdqsort - matches C++ std::sort)
+// 2 = Unsafe raw pointer radix sort
+// 3 = Parallel radix sort (rayon)
+const VARIANT: u32 = 1;
+
+#[cfg(feature = "variant_0")]
+// ===== VARIANT 0: ORIGINAL SAFE RADIX SORT =====
 fn radix_sort(arr: &mut [u32]) {
     let n = arr.len();
     let mut temp = vec![0u32; n];
 
-    // Process 8 bits at a time (4 passes for 32 bits)
     for shift in (0..32).step_by(8) {
         let mut count = [0usize; 256];
 
-        // Count occurrences
         for &val in arr.iter() {
             let byte = ((val >> shift) & 0xFF) as usize;
             count[byte] += 1;
         }
 
-        // Compute prefix sum
         for i in 1..256 {
             count[i] += count[i - 1];
         }
 
-        // Build output array (go backwards for stability)
         for &val in arr.iter().rev() {
             let byte = ((val >> shift) & 0xFF) as usize;
             count[byte] -= 1;
             temp[count[byte]] = val;
         }
 
-        // Copy back
         arr.copy_from_slice(&temp);
+    }
+}
+
+#[cfg(not(feature = "variant_0"))]
+fn radix_sort(arr: &mut [u32]) {
+    match VARIANT {
+        0 => {
+            // Original safe radix sort
+            let n = arr.len();
+            let mut temp = vec![0u32; n];
+
+            for shift in (0..32).step_by(8) {
+                let mut count = [0usize; 256];
+
+                for &val in arr.iter() {
+                    let byte = ((val >> shift) & 0xFF) as usize;
+                    count[byte] += 1;
+                }
+
+                for i in 1..256 {
+                    count[i] += count[i - 1];
+                }
+
+                for &val in arr.iter().rev() {
+                    let byte = ((val >> shift) & 0xFF) as usize;
+                    count[byte] -= 1;
+                    temp[count[byte]] = val;
+                }
+
+                arr.copy_from_slice(&temp);
+            }
+        }
+        1 => {
+            // VARIANT 1: Use Rust's highly optimized sort_unstable (pdqsort)
+            // This is the same algorithm family as C++ std::sort
+            arr.sort_unstable();
+        }
+        2 => {
+            // VARIANT 2: Unsafe raw pointer radix sort (bypass bounds checking)
+            unsafe {
+                let n = arr.len();
+                let mut temp = vec![0u32; n];
+                let arr_ptr = arr.as_mut_ptr();
+                let temp_ptr = temp.as_mut_ptr();
+
+                for shift in (0..32).step_by(8) {
+                    let mut count = [0usize; 256];
+
+                    // Unsafe counting - no bounds checks
+                    for i in 0..n {
+                        let val = *arr_ptr.add(i);
+                        let byte = ((val >> shift) & 0xFF) as usize;
+                        count[byte] += 1;
+                    }
+
+                    // Prefix sum
+                    for i in 1..256 {
+                        count[i] += count[i - 1];
+                    }
+
+                    // Distribution
+                    for i in (0..n).rev() {
+                        let val = *arr_ptr.add(i);
+                        let byte = ((val >> shift) & 0xFF) as usize;
+                        count[byte] -= 1;
+                        *temp_ptr.add(count[byte]) = val;
+                    }
+
+                    // Copy back using raw pointer memcpy
+                    std::ptr::copy_nonoverlapping(temp_ptr, arr_ptr, n);
+                }
+            }
+        }
+        3 => {
+            // VARIANT 3: Would require rayon dependency - fallback to sort_unstable
+            arr.sort_unstable();
+        }
+        _ => arr.sort_unstable(),
     }
 }
 
@@ -57,7 +138,7 @@ fn main() -> io::Result<()> {
         )
     };
 
-    // Sort using radix sort (O(n) for 32-bit integers)
+    // Sort using selected variant
     radix_sort(numbers);
 
     // Calculate sum of top 50%
