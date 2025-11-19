@@ -44,7 +44,7 @@ def compile_agents():
     if os.path.exists("team_cpp/main.cpp"):
         print("⚡ Compiling Team SpeedDemon...")
         start = time.time()
-        # Try clang++ first (uses LLVM like Rust), fallback to g++
+        # Use best found configuration: clang++ with -O3
         compiler = "clang++"
         cmd = [compiler, "-O3", "-march=native", "-pthread", "team_cpp/main.cpp", "-o", "team_cpp/speed_demon"]
         p = subprocess.run(cmd, capture_output=True)

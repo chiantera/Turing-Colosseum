@@ -1,6 +1,6 @@
 === ASSEMBLY FORENSICS: Team SpeedDemon ===
-Performance Gap: 15.2154 ms
-Target to Beat: 8.4774 ms
+Performance Gap: 14.9491 ms
+Target to Beat: 7.3023 ms
 
 	.text
 	.file	"main.cpp"
