@@ -44,17 +44,25 @@ def compile_agents():
     if os.path.exists("team_cpp/main.cpp"):
         print("⚡ Compiling Team SpeedDemon...")
         start = time.time()
-        # Compile with max optimizations
-        cmd = ["g++", "-O3", "-march=native", "-pthread", "team_cpp/main.cpp", "-o", "team_cpp/speed_demon"]
+        # Try clang++ first (uses LLVM like Rust), fallback to g++
+        compiler = "clang++"
+        cmd = [compiler, "-O3", "-march=native", "-pthread", "team_cpp/main.cpp", "-o", "team_cpp/speed_demon"]
         p = subprocess.run(cmd, capture_output=True)
+
+        if p.returncode != 0:
+            # Fallback to g++
+            compiler = "g++"
+            cmd = ["g++", "-O3", "-march=native", "-pthread", "team_cpp/main.cpp", "-o", "team_cpp/speed_demon"]
+            p = subprocess.run(cmd, capture_output=True)
+
         if p.returncode != 0:
             print(f"❌ C++ Compilation Failed:\n{p.stderr.decode()}")
             results['cpp'] = False
         else:
-            print(f"✅ C++ Compiled in {time.time() - start:.2f}s")
+            print(f"✅ C++ Compiled with {compiler} in {time.time() - start:.2f}s")
             results['cpp'] = True
             # Generate assembly for forensics
-            subprocess.run(["g++", "-O3", "-march=native", "-pthread", "-S", "-fverbose-asm",
+            subprocess.run([compiler, "-O3", "-march=native", "-pthread", "-S", "-fverbose-asm",
                           "team_cpp/main.cpp", "-o", "team_cpp/main.s"], capture_output=True)
     else:
         print("⚠️ Team SpeedDemon code not found.")

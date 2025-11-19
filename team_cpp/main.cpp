@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <cstring>
 #include <immintrin.h>
+#include <execution>
 
 // Select optimization variant:
 // 0 = Original radix sort
@@ -16,7 +17,8 @@
 // 3 = American Flag Sort (in-place radix variant)
 // 4 = 16-bit radix (2 passes, 256KB histogram)
 // 5 = Prefetch-optimized radix
-// 6 = Hybrid: pdqsort
+// 6 = std::sort (sequential pdqsort)
+// 7 = Parallel sort (std::execution::par_unseq)
 #define VARIANT 6
 
 #if VARIANT == 0
@@ -302,6 +304,14 @@ void radix_sort(uint32_t* arr, size_t n) {
 
 void radix_sort(uint32_t* arr, size_t n) {
     std::sort(arr, arr + n);
+}
+
+#elif VARIANT == 7
+// ===== VARIANT 7: PARALLEL SORT =====
+// Hypothesis: Multi-threaded sort exploits all CPU cores
+
+void radix_sort(uint32_t* arr, size_t n) {
+    std::sort(std::execution::par_unseq, arr, arr + n);
 }
 
 #endif
