@@ -9,9 +9,538 @@
 	.globl _ZSt21ios_base_library_initv
 #NO_APP
 	.p2align 4
+	.type	_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.isra.0, @function
+_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.isra.0:
+.LFB9692:
+	.cfi_startproc
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	leaq	-1(%rdx), %rax	#, tmp131
+# /usr/include/c++/13/bits/stl_heap.h:224:     __adjust_heap(_RandomAccessIterator __first, _Distance __holeIndex,
+	pushq	%rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	movq	%rdx, %rbp	# __len, _163
+# /usr/include/c++/13/bits/stl_heap.h:224:     __adjust_heap(_RandomAccessIterator __first, _Distance __holeIndex,
+	movq	%rsi, %r8	# tmp155, __holeIndex
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	movq	%rax, %r11	# tmp131, tmp132
+# /usr/include/c++/13/bits/stl_heap.h:224:     __adjust_heap(_RandomAccessIterator __first, _Distance __holeIndex,
+	movl	%ecx, %r9d	# tmp157, __value
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	andl	$1, %ebp	#, _163
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	shrq	$63, %r11	#, tmp132
+	addq	%rax, %r11	# tmp131, tmp133
+# /usr/include/c++/13/bits/stl_heap.h:224:     __adjust_heap(_RandomAccessIterator __first, _Distance __holeIndex,
+	pushq	%rbx	#
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+# /usr/include/c++/13/bits/stl_heap.h:224:     __adjust_heap(_RandomAccessIterator __first, _Distance __holeIndex,
+	movq	%rdx, %rbx	# tmp156, __len
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	sarq	%r11	# tmp134
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	cmpq	%r11, %rsi	# tmp134, __holeIndex
+	jl	.L6	#,
+	jmp	.L2	#
+	.p2align 4,,10
+	.p2align 3
+.L17:
+# /usr/include/c++/13/bits/stl_heap.h:234: 	    __secondChild--;
+	decq	%rax	# __holeIndex
+# /usr/include/c++/13/bits/stl_heap.h:235: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __secondChild));
+	leaq	(%rdi,%rax,4), %rcx	#, prephitmp_77
+# /usr/include/c++/13/bits/stl_heap.h:235: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __secondChild));
+	movl	(%rcx), %edx	# MEM[(type &)_101], pretmp_100
+	movl	%edx, (%rdi,%rsi,4)	# pretmp_100, *_147
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	cmpq	%rax, %r11	# __holeIndex, tmp134
+	jle	.L5	#,
+.L4:
+	movq	%rax, %rsi	# __holeIndex, __holeIndex
+.L6:
+# /usr/include/c++/13/bits/stl_heap.h:231: 	  __secondChild = 2 * (__secondChild + 1);
+	leaq	1(%rsi), %rdx	#, tmp135
+# /usr/include/c++/13/bits/stl_heap.h:231: 	  __secondChild = 2 * (__secondChild + 1);
+	leaq	(%rdx,%rdx), %rax	#, __holeIndex
+# /usr/include/c++/13/bits/stl_heap.h:233: 		     __first + (__secondChild - 1)))
+	salq	$3, %rdx	#, _121
+# /usr/include/c++/13/bits/stl_heap.h:232: 	  if (__comp(__first + __secondChild,
+	leaq	(%rdi,%rdx), %rcx	#, prephitmp_77
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	(%rcx), %r10d	# *_110, _109
+# /usr/include/c++/13/bits/stl_heap.h:232: 	  if (__comp(__first + __secondChild,
+	cmpl	-4(%rdi,%rdx), %r10d	# *_111, _109
+	jb	.L17	#,
+# /usr/include/c++/13/bits/stl_heap.h:235: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __secondChild));
+	movl	%r10d, (%rdi,%rsi,4)	# _109, *_94
+# /usr/include/c++/13/bits/stl_heap.h:229:       while (__secondChild < (__len - 1) / 2)
+	cmpq	%rax, %r11	# __holeIndex, tmp134
+	jg	.L4	#,
+.L5:
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	testq	%rbp, %rbp	# _163
+	je	.L10	#,
+.L7:
+# /usr/include/c++/13/bits/stl_heap.h:139:       _Distance __parent = (__holeIndex - 1) / 2;
+	leaq	-1(%rax), %rdx	#, tmp144
+# /usr/include/c++/13/bits/stl_heap.h:139:       _Distance __parent = (__holeIndex - 1) / 2;
+	movq	%rdx, %rsi	# tmp144, tmp145
+	shrq	$63, %rsi	#, tmp145
+	addq	%rdx, %rsi	# tmp144, tmp146
+	sarq	%rsi	# __parent
+# /usr/include/c++/13/bits/stl_heap.h:140:       while (__holeIndex > __topIndex && __comp(__first + __parent, __value))
+	cmpq	%r8, %rax	# __holeIndex, __holeIndex
+	jg	.L9	#,
+	jmp	.L8	#
+	.p2align 4,,10
+	.p2align 3
+.L19:
+# /usr/include/c++/13/bits/stl_heap.h:142: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));
+	movl	%edx, (%rcx)	# _48, *_159
+# /usr/include/c++/13/bits/stl_heap.h:144: 	  __parent = (__holeIndex - 1) / 2;
+	leaq	-1(%rsi), %rdx	#, _53
+# /usr/include/c++/13/bits/stl_heap.h:144: 	  __parent = (__holeIndex - 1) / 2;
+	movq	%rdx, %rax	# _53, tmp150
+	shrq	$63, %rax	#, tmp150
+	addq	%rdx, %rax	# _53, tmp151
+	sarq	%rax	# tmp151
+	movq	%rax, %rdx	# tmp151, tmp152
+	movq	%rsi, %rax	# __parent, __holeIndex
+# /usr/include/c++/13/bits/stl_heap.h:140:       while (__holeIndex > __topIndex && __comp(__first + __parent, __value))
+	cmpq	%rsi, %r8	# __holeIndex, __holeIndex
+	jge	.L18	#,
+	movq	%rdx, %rsi	# tmp152, __parent
+.L9:
+# /usr/include/c++/13/bits/stl_heap.h:140:       while (__holeIndex > __topIndex && __comp(__first + __parent, __value))
+	leaq	(%rdi,%rsi,4), %r10	#, _47
+# /usr/include/c++/13/bits/stl_heap.h:142: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));
+	leaq	(%rdi,%rax,4), %rcx	#, prephitmp_77
+# /usr/include/c++/13/bits/predefined_ops.h:69:       { return *__it < __val; }
+	movl	(%r10), %edx	# *_47, _48
+# /usr/include/c++/13/bits/stl_heap.h:140:       while (__holeIndex > __topIndex && __comp(__first + __parent, __value))
+	cmpl	%r9d, %edx	# __value, _48
+	jb	.L19	#,
+.L8:
+# /usr/include/c++/13/bits/stl_heap.h:146:       *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);
+	movl	%r9d, (%rcx)	# __value, *prephitmp_156
+# /usr/include/c++/13/bits/stl_heap.h:249:     }
+	popq	%rbx	#
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbp	#
+	.cfi_def_cfa_offset 8
+	ret	
+	.p2align 4,,10
+	.p2align 3
+.L2:
+	.cfi_restore_state
+# /usr/include/c++/13/bits/stl_heap.h:146:       *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);
+	leaq	(%rdi,%rsi,4), %rcx	#, prephitmp_77
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	testq	%rbp, %rbp	# _163
+	jne	.L8	#,
+	movq	%r8, %rax	# __holeIndex, __holeIndex
+	.p2align 4,,10
+	.p2align 3
+.L10:
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	subq	$2, %rbx	#, tmp137
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	movq	%rbx, %rdx	# tmp137, tmp139
+	shrq	$63, %rdx	#, tmp139
+	addq	%rbx, %rdx	# tmp137, tmp140
+	sarq	%rdx	# tmp141
+# /usr/include/c++/13/bits/stl_heap.h:238:       if ((__len & 1) == 0 && __secondChild == (__len - 2) / 2)
+	cmpq	%rdx, %rax	# tmp141, __holeIndex
+	jne	.L7	#,
+# /usr/include/c++/13/bits/stl_heap.h:240: 	  __secondChild = 2 * (__secondChild + 1);
+	leaq	2(%rax,%rax), %rax	#, __secondChild
+# /usr/include/c++/13/bits/stl_heap.h:241: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first
+	movl	-4(%rdi,%rax,4), %edx	# MEM[(type &)_33], _37
+# /usr/include/c++/13/bits/stl_heap.h:243: 	  __holeIndex = __secondChild - 1;
+	decq	%rax	# __holeIndex
+# /usr/include/c++/13/bits/stl_heap.h:241: 	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first
+	movl	%edx, (%rcx)	# _37, *prephitmp_132
+# /usr/include/c++/13/bits/stl_heap.h:146:       *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);
+	leaq	(%rdi,%rax,4), %rcx	#, prephitmp_77
+	jmp	.L7	#
+	.p2align 4,,10
+	.p2align 3
+.L18:
+	movq	%r10, %rcx	# _47, prephitmp_77
+# /usr/include/c++/13/bits/stl_heap.h:146:       *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);
+	movl	%r9d, (%rcx)	# __value, *prephitmp_156
+# /usr/include/c++/13/bits/stl_heap.h:249:     }
+	popq	%rbx	#
+	.cfi_def_cfa_offset 16
+	popq	%rbp	#
+	.cfi_def_cfa_offset 8
+	ret	
+	.cfi_endproc
+.LFE9692:
+	.size	_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.isra.0, .-_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.isra.0
+	.p2align 4
+	.type	_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.isra.0, @function
+_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.isra.0:
+.LFB9693:
+	.cfi_startproc
+# /usr/include/c++/13/bits/stl_algo.h:1815:       if (__first == __last) return;
+	cmpq	%rsi, %rdi	# __last, __first
+	je	.L34	#,
+# /usr/include/c++/13/bits/stl_algo.h:1812:     __insertion_sort(_RandomAccessIterator __first,
+	pushq	%r14	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	movq	%rdi, %r14	# tmp104, __first
+	pushq	%r13	#
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	leaq	4(%rdi), %r13	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1812:     __insertion_sort(_RandomAccessIterator __first,
+	pushq	%r12	#
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp	#
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx	#
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movq	%rsi, %rbx	# tmp105, __last
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%r13, %rsi	# __i, __last
+	je	.L32	#,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movl	$4, %ebp	#, tmp103
+	jmp	.L29	#
+	.p2align 4,,10
+	.p2align 3
+.L37:
+# /usr/include/c++/13/bits/stl_algobase.h:746: 	  const ptrdiff_t _Num = __last - __first;
+	movq	%rdi, %rdx	# __last, _24
+	subq	%r14, %rdx	# __first, _24
+# /usr/include/c++/13/bits/stl_algobase.h:747: 	  if (__builtin_expect(_Num > 1, true))
+	cmpq	$4, %rdx	#, _24
+	jle	.L24	#,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movq	%rbp, %rax	# tmp103, tmp99
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movq	%r14, %rsi	# __first,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	subq	%rdx, %rax	# _24, tmp99
+	addq	%rax, %rdi	# tmp99, tmp101
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	call	memmove@PLT	#
+.L25:
+# /usr/include/c++/13/bits/stl_algo.h:1824: 	      *__first = _GLIBCXX_MOVE(__val);
+	movl	%r12d, (%r14)	# _5, *__first_1(D)
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%r13, %rbx	# __i, __last
+	je	.L32	#,
+.L29:
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	0(%r13), %r12d	# MEM[(unsigned int *)__i_34], _5
+	movl	(%r14), %eax	# *__first_1(D), _6
+	movq	%r13, %rdi	# __i, __last
+# /usr/include/c++/13/bits/stl_algo.h:1823: 	      _GLIBCXX_MOVE_BACKWARD3(__first, __i, __i + 1);
+	addq	$4, %r13	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1819: 	  if (__comp(__i, __first))
+	cmpl	%eax, %r12d	# _6, _5
+	jb	.L37	#,
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	-8(%r13), %edx	# MEM[(unsigned int *)_13 + -8B], _9
+# /usr/include/c++/13/bits/stl_algo.h:1798:       --__next;
+	leaq	-8(%r13), %rax	#, __next
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %r12d	# _9, _5
+	jnb	.L27	#,
+	.p2align 4,,10
+	.p2align 3
+.L28:
+# /usr/include/c++/13/bits/stl_algo.h:1801: 	  *__last = _GLIBCXX_MOVE(*__next);
+	movl	%edx, 4(%rax)	# _9, MEM[(unsigned int *)__next_39 + 4B]
+	movq	%rax, %rdi	# __next, __last
+# /usr/include/c++/13/bits/stl_algo.h:1803: 	  --__next;
+	subq	$4, %rax	#, __next
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	(%rax), %edx	# MEM[(unsigned int *)__next_12], _9
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %r12d	# _9, _5
+	jb	.L28	#,
+.L27:
+# /usr/include/c++/13/bits/stl_algo.h:1805:       *__last = _GLIBCXX_MOVE(__val);
+	movl	%r12d, (%rdi)	# _5, *__last_38
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%r13, %rbx	# __i, __last
+	jne	.L29	#,
+.L32:
+# /usr/include/c++/13/bits/stl_algo.h:1830:     }
+	popq	%rbx	#
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbp	#
+	.cfi_def_cfa_offset 32
+	popq	%r12	#
+	.cfi_def_cfa_offset 24
+	popq	%r13	#
+	.cfi_def_cfa_offset 16
+	popq	%r14	#
+	.cfi_def_cfa_offset 8
+	ret	
+.L24:
+	.cfi_restore_state
+# /usr/include/c++/13/bits/stl_algobase.h:749: 	  else if (_Num == 1)
+	jne	.L25	#,
+# /usr/include/c++/13/bits/stl_algobase.h:423: 	{ *__to = std::move(*__from); }
+	movl	%eax, -4(%r13)	# _6, MEM[(unsigned int *)_13 + -4B]
+# /usr/include/c++/13/bits/stl_algobase.h:423: 	{ *__to = std::move(*__from); }
+	jmp	.L25	#
+.L34:
+	.cfi_def_cfa_offset 8
+	.cfi_restore 3
+	.cfi_restore 6
+	.cfi_restore 12
+	.cfi_restore 13
+	.cfi_restore 14
+	ret	
+	.cfi_endproc
+.LFE9693:
+	.size	_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.isra.0, .-_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.isra.0
+	.p2align 4
+	.type	_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0, @function
+_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0:
+.LFB9696:
+	.cfi_startproc
+	pushq	%r13	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+# /usr/include/c++/13/bits/stl_algo.h:1922:       while (__last - __first > int(_S_threshold))
+	movq	%rsi, %rax	# __last, _7
+	subq	%rdi, %rax	# __first, _7
+# /usr/include/c++/13/bits/stl_algo.h:1918:     __introsort_loop(_RandomAccessIterator __first,
+	pushq	%r12	#
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	movq	%rdi, %r12	# tmp124, __first
+	pushq	%rbp	#
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx	#
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$8, %rsp	#,
+	.cfi_def_cfa_offset 48
+# /usr/include/c++/13/bits/stl_algo.h:1922:       while (__last - __first > int(_S_threshold))
+	cmpq	$64, %rax	#, _7
+	jle	.L67	#,
+	movq	%rsi, %rdi	# tmp125, __last
+	movq	%rdx, %r13	# tmp126, __depth_limit
+# /usr/include/c++/13/bits/stl_algo.h:1897:       std::__move_median_to_first(__first, __first + 1, __mid, __last - 1,
+	leaq	4(%r12), %rbp	#, _140
+# /usr/include/c++/13/bits/stl_algo.h:1924: 	  if (__depth_limit == 0)
+	testq	%rdx, %rdx	# __depth_limit
+	je	.L73	#,
+.L41:
+# /usr/include/c++/13/bits/stl_algo.h:1896:       _RandomAccessIterator __mid = __first + (__last - __first) / 2;
+	sarq	$3, %rax	#, tmp121
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	vmovq	(%r12), %xmm0	# MEM <vector(2) unsigned int> [(type &)__first_2(D)], MEM <vector(2) unsigned int> [(type &)__first_2(D)]
+	movl	-4(%rdi), %esi	# MEM[(unsigned int *)__last_58 + -4B], pretmp_196
+# /usr/include/c++/13/bits/stl_algo.h:1929: 	  --__depth_limit;
+	decq	%r13	# __depth_limit
+# /usr/include/c++/13/bits/stl_algo.h:1896:       _RandomAccessIterator __mid = __first + (__last - __first) / 2;
+	leaq	(%r12,%rax,4), %r8	#, __mid
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	(%r8), %eax	# *__mid_46, _67
+	vpextrd	$1, %xmm0, %ecx	# MEM <vector(2) unsigned int> [(type &)__first_2(D)], pretmp_157
+	vpshufd	$225, %xmm0, %xmm1	#, MEM <vector(2) unsigned int> [(type &)__first_2(D)], _165
+	vmovd	%xmm0, %edx	# MEM <vector(2) unsigned int> [(type &)__first_2(D)], _51
+# /usr/include/c++/13/bits/stl_algo.h:88:       if (__comp(__a, __b))
+	cmpl	%eax, %ecx	# _67, pretmp_157
+	jnb	.L44	#,
+# /usr/include/c++/13/bits/stl_algo.h:90: 	  if (__comp(__b, __c))
+	cmpl	%esi, %eax	# pretmp_196, _67
+	jb	.L70	#,
+# /usr/include/c++/13/bits/stl_algo.h:92: 	  else if (__comp(__a, __c))
+	cmpl	%esi, %ecx	# pretmp_196, pretmp_157
+	jb	.L69	#,
+.L71:
+# /usr/include/c++/13/bits/move.h:198:       __a = _GLIBCXX_MOVE(__b);
+	vmovq	%xmm1, (%r12)	# _165, MEM <vector(2) unsigned int> [(unsigned int &)__first_2(D)]
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	-4(%rdi), %esi	# MEM[(unsigned int *)__last_58 + -4B], _57
+.L48:
+# /usr/include/c++/13/bits/stl_algobase.h:187:     }
+	movq	%rdi, %rax	# __last, __last
+	movq	%rbp, %rbx	# _140, __last
+	jmp	.L72	#
+	.p2align 4,,10
+	.p2align 3
+.L52:
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	4(%rbx), %edx	# MEM[(unsigned int *)__first_50], _51
+# /usr/include/c++/13/bits/stl_algo.h:1878: 	    ++__first;
+	addq	$4, %rbx	#, __last
+.L72:
+# /usr/include/c++/13/bits/stl_algo.h:1877: 	  while (__comp(__first, __pivot))
+	cmpl	%ecx, %edx	# pretmp_157, _51
+	jb	.L52	#,
+# /usr/include/c++/13/bits/stl_algo.h:1879: 	  --__last;
+	subq	$4, %rax	#, __last
+# /usr/include/c++/13/bits/stl_algo.h:1880: 	  while (__comp(__pivot, __last))
+	cmpl	%esi, %ecx	# _57, pretmp_157
+	jnb	.L53	#,
+	.p2align 4,,10
+	.p2align 3
+.L54:
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	-4(%rax), %esi	# MEM[(unsigned int *)__last_56], _57
+# /usr/include/c++/13/bits/stl_algo.h:1881: 	    --__last;
+	subq	$4, %rax	#, __last
+# /usr/include/c++/13/bits/stl_algo.h:1880: 	  while (__comp(__pivot, __last))
+	cmpl	%esi, %ecx	# _57, pretmp_157
+	jb	.L54	#,
+.L53:
+# /usr/include/c++/13/bits/stl_algo.h:1882: 	  if (!(__first < __last))
+	cmpq	%rax, %rbx	# __last, __last
+	jnb	.L74	#,
+# /usr/include/c++/13/bits/move.h:198:       __a = _GLIBCXX_MOVE(__b);
+	movl	%esi, (%rbx)	# _57, *__first_15
+# /usr/include/c++/13/bits/stl_algo.h:1885: 	  ++__first;
+	addq	$4, %rbx	#, __last
+# /usr/include/c++/13/bits/move.h:199:       __b = _GLIBCXX_MOVE(__tmp);
+	movl	%edx, (%rax)	# _51, *__last_14
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	-4(%rax), %esi	# MEM[(unsigned int *)__last_14 + -4B], _57
+	movl	(%rbx), %edx	# MEM[(unsigned int *)__first_15 + 4B], _51
+	movl	(%r12), %ecx	# *__first_2(D), pretmp_157
+# /usr/include/c++/13/bits/stl_algo.h:1877: 	  while (__comp(__first, __pivot))
+	jmp	.L72	#
+.L44:
+# /usr/include/c++/13/bits/stl_algo.h:97:       else if (__comp(__a, __c))
+	cmpl	%esi, %ecx	# pretmp_196, pretmp_157
+	jb	.L71	#,
+# /usr/include/c++/13/bits/stl_algo.h:99:       else if (__comp(__b, __c))
+	cmpl	%esi, %eax	# pretmp_196, _67
+	jnb	.L70	#,
+.L69:
+# /usr/include/c++/13/bits/move.h:198:       __a = _GLIBCXX_MOVE(__b);
+	movl	%esi, (%r12)	# pretmp_196, *__first_2(D)
+# /usr/include/c++/13/bits/stl_algobase.h:187:     }
+	movl	%edx, %esi	# _51, _57
+# /usr/include/c++/13/bits/move.h:199:       __b = _GLIBCXX_MOVE(__tmp);
+	movl	%edx, -4(%rdi)	# _51, MEM[(unsigned int &)__last_58 + 18446744073709551612]
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	(%r12), %ecx	# *__first_2(D), pretmp_157
+# /usr/include/c++/13/bits/stl_algobase.h:187:     }
+	movl	4(%r12), %edx	# MEM[(unsigned int *)__first_2(D) + 4B], _51
+	jmp	.L48	#
+	.p2align 4,,10
+	.p2align 3
+.L74:
+# /usr/include/c++/13/bits/stl_algo.h:1932: 	  std::__introsort_loop(__cut, __last, __depth_limit, __comp);
+	movq	%rdi, %rsi	# __last,
+	movq	%r13, %rdx	# __depth_limit,
+	movq	%rbx, %rdi	# __last,
+	call	_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0	#
+# /usr/include/c++/13/bits/stl_algo.h:1922:       while (__last - __first > int(_S_threshold))
+	movq	%rbx, %rax	# __last, _7
+	subq	%r12, %rax	# __first, _7
+# /usr/include/c++/13/bits/stl_algo.h:1922:       while (__last - __first > int(_S_threshold))
+	cmpq	$64, %rax	#, _7
+	jle	.L67	#,
+# /usr/include/c++/13/bits/stl_algo.h:1924: 	  if (__depth_limit == 0)
+	testq	%r13, %r13	# __depth_limit
+	je	.L57	#,
+	movq	%rbx, %rdi	# __last, __last
+	jmp	.L41	#
+.L70:
+# /usr/include/c++/13/bits/move.h:198:       __a = _GLIBCXX_MOVE(__b);
+	movl	%eax, (%r12)	# _67, *__first_2(D)
+# /usr/include/c++/13/bits/move.h:199:       __b = _GLIBCXX_MOVE(__tmp);
+	movl	%edx, (%r8)	# _51, *__mid_46
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	4(%r12), %edx	# MEM[(unsigned int *)__first_2(D) + 4B], _51
+	movl	(%r12), %ecx	# *__first_2(D), pretmp_157
+	movl	-4(%rdi), %esi	# MEM[(unsigned int *)__last_58 + -4B], _57
+# /usr/include/c++/13/bits/stl_algobase.h:187:     }
+	jmp	.L48	#
+.L73:
+# /usr/include/c++/13/bits/stl_algo.h:1924: 	  if (__depth_limit == 0)
+	movq	%rdi, %rbx	# __last, __last
+.L57:
+# /usr/include/c++/13/bits/stl_heap.h:351:       const _DistanceType __len = __last - __first;
+	sarq	$2, %rax	#, _7
+# /usr/include/c++/13/bits/stl_heap.h:352:       _DistanceType __parent = (__len - 2) / 2;
+	leaq	-2(%rax), %r13	#, tmp114
+# /usr/include/c++/13/bits/stl_heap.h:351:       const _DistanceType __len = __last - __first;
+	movq	%rax, %rbp	# _7, tmp113
+# /usr/include/c++/13/bits/stl_heap.h:352:       _DistanceType __parent = (__len - 2) / 2;
+	sarq	%r13	# __parent
+	jmp	.L43	#
+.L75:
+# /usr/include/c++/13/bits/stl_heap.h:360: 	  __parent--;
+	decq	%r13	# __parent
+.L43:
+# /usr/include/c++/13/bits/stl_heap.h:356: 	  std::__adjust_heap(__first, __parent, __len, _GLIBCXX_MOVE(__value),
+	movl	(%r12,%r13,4), %ecx	# MEM[(type &)__first_2(D) + _171 * 4], MEM[(type &)__first_2(D) + _171 * 4]
+	movq	%rbp, %rdx	# tmp113,
+	movq	%r13, %rsi	# __parent,
+	movq	%r12, %rdi	# __first,
+	call	_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.isra.0	#
+# /usr/include/c++/13/bits/stl_heap.h:358: 	  if (__parent == 0)
+	testq	%r13, %r13	# __parent
+	jne	.L75	#,
+	.p2align 4,,10
+	.p2align 3
+.L42:
+# /usr/include/c++/13/bits/stl_heap.h:424: 	  --__last;
+	subq	$4, %rbx	#, __last
+# /usr/include/c++/13/bits/stl_heap.h:263:       *__result = _GLIBCXX_MOVE(*__first);
+	movl	(%r12), %eax	# MEM[(type &)__first_2(D)], _21
+# /usr/include/c++/13/bits/stl_heap.h:262:       _ValueType __value = _GLIBCXX_MOVE(*__result);
+	movl	(%rbx), %ecx	# MEM[(type &)__last_19], _20
+# /usr/include/c++/13/bits/stl_heap.h:264:       std::__adjust_heap(__first, _DistanceType(0),
+	xorl	%esi, %esi	#
+# /usr/include/c++/13/bits/stl_heap.h:265: 			 _DistanceType(__last - __first),
+	movq	%rbx, %rbp	# __last, _22
+# /usr/include/c++/13/bits/stl_heap.h:264:       std::__adjust_heap(__first, _DistanceType(0),
+	movq	%r12, %rdi	# __first,
+# /usr/include/c++/13/bits/stl_heap.h:265: 			 _DistanceType(__last - __first),
+	subq	%r12, %rbp	# __first, _22
+# /usr/include/c++/13/bits/stl_heap.h:263:       *__result = _GLIBCXX_MOVE(*__first);
+	movl	%eax, (%rbx)	# _21, MEM[(unsigned int *)__last_19]
+# /usr/include/c++/13/bits/stl_heap.h:265: 			 _DistanceType(__last - __first),
+	movq	%rbp, %rdx	# _22, tmp117
+	sarq	$2, %rdx	#, tmp117
+# /usr/include/c++/13/bits/stl_heap.h:264:       std::__adjust_heap(__first, _DistanceType(0),
+	call	_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.isra.0	#
+# /usr/include/c++/13/bits/stl_heap.h:422:       while (__last - __first > 1)
+	cmpq	$4, %rbp	#, _22
+	jg	.L42	#,
+.L67:
+# /usr/include/c++/13/bits/stl_algo.h:1935:     }
+	addq	$8, %rsp	#,
+	.cfi_def_cfa_offset 40
+	popq	%rbx	#
+	.cfi_def_cfa_offset 32
+	popq	%rbp	#
+	.cfi_def_cfa_offset 24
+	popq	%r12	#
+	.cfi_def_cfa_offset 16
+	popq	%r13	#
+	.cfi_def_cfa_offset 8
+	ret	
+	.cfi_endproc
+.LFE9696:
+	.size	_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0, .-_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0
+	.p2align 4
 	.type	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0, @function
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0:
-.LFB9655:
+.LFB9701:
 	.cfi_startproc
 	pushq	%rbp	#
 	.cfi_def_cfa_offset 16
@@ -27,14 +556,14 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0:
 	movq	240(%rdi,%rax), %rbp	# MEM[(const struct __ctype_type * *)_5 + 240B], _14
 # /usr/include/c++/13/bits/basic_ios.h:49:       if (!__f)
 	testq	%rbp, %rbp	# _14
-	je	.L7	#,
+	je	.L81	#,
 # /usr/include/c++/13/bits/locale_facets.h:882: 	if (_M_widen_ok)
 	cmpb	$0, 56(%rbp)	#, MEM[(const struct ctype *)_14]._M_widen_ok
 	movq	%rdi, %rbx	# tmp99, __os
-	je	.L3	#,
+	je	.L78	#,
 # /usr/include/c++/13/bits/locale_facets.h:883: 	  return _M_widen[static_cast<unsigned char>(__c)];
 	movsbl	67(%rbp), %esi	# MEM[(const struct ctype *)_14]._M_widen[10],
-.L4:
+.L79:
 # /usr/include/c++/13/ostream:736:     { return flush(__os.put(__os.widen('\n'))); }
 	movq	%rbx, %rdi	# __os,
 	call	_ZNSo3putEc@PLT	#
@@ -51,7 +580,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0:
 	.cfi_def_cfa_offset 8
 # /usr/include/c++/13/ostream:758:     { return __os.flush(); }
 	jmp	_ZNSo5flushEv@PLT	#
-.L3:
+.L78:
 	.cfi_restore_state
 # /usr/include/c++/13/bits/locale_facets.h:884: 	this->_M_widen_init();
 	movq	%rbp, %rdi	# _14,
@@ -62,21 +591,309 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0:
 	movq	%rbp, %rdi	# _14,
 	call	*48(%rax)	# MEM[(int (*) () *)_24 + 48B]
 	movsbl	%al, %esi	# tmp100,
-	jmp	.L4	#
-.L7:
+	jmp	.L79	#
+.L81:
 # /usr/include/c++/13/bits/basic_ios.h:50: 	__throw_bad_cast();
 	call	_ZSt16__throw_bad_castv@PLT	#
 	.cfi_endproc
-.LFE9655:
+.LFE9701:
 	.size	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0, .-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0
-	.section	.text.unlikely,"ax",@progbits
-.LCOLDB0:
-	.text
-.LHOTB0:
 	.p2align 4
 	.globl	_Z10radix_sortPjm
 	.type	_Z10radix_sortPjm, @function
 _Z10radix_sortPjm:
+.LFB9137:
+	.cfi_startproc
+	endbr64	
+	pushq	%r15	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14	#
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13	#
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12	#
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+# team_cpp/main.cpp:304:     std::sort(arr, arr + n);
+	leaq	0(,%rsi,4), %r12	#, _1
+# team_cpp/main.cpp:303: void radix_sort(uint32_t* arr, size_t n) {
+	pushq	%rbp	#
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx	#
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+# team_cpp/main.cpp:304:     std::sort(arr, arr + n);
+	leaq	(%rdi,%r12), %rbx	#, _2
+# team_cpp/main.cpp:303: void radix_sort(uint32_t* arr, size_t n) {
+	subq	$8, %rsp	#,
+	.cfi_def_cfa_offset 64
+# /usr/include/c++/13/bits/stl_algo.h:1945:       if (__first != __last)
+	cmpq	%rdi, %rbx	# arr, _2
+	je	.L110	#,
+# /usr/include/c++/13/bits/stl_algo.h:1948: 				std::__lg(__last - __first) * 2,
+	movq	%r12, %rax	# _1, tmp124
+# /usr/include/c++/13/bits/stl_algobase.h:1518:       return std::__bit_width(make_unsigned_t<_Tp>(__n)) - 1;
+	movl	$63, %edx	#, tmp127
+	movq	%rdi, %r14	# tmp146, arr
+# /usr/include/c++/13/bits/stl_algo.h:1947: 	  std::__introsort_loop(__first, __last,
+	movq	%rbx, %rsi	# _2,
+# /usr/include/c++/13/bits/stl_algo.h:1948: 				std::__lg(__last - __first) * 2,
+	sarq	$2, %rax	#, tmp124
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	leaq	4(%r14), %rbp	#, __i
+	lzcntq	%rax, %rax	# tmp124, tmp125
+# /usr/include/c++/13/bits/stl_algobase.h:1518:       return std::__bit_width(make_unsigned_t<_Tp>(__n)) - 1;
+	subl	%eax, %edx	# tmp125, tmp126
+# /usr/include/c++/13/bits/stl_algobase.h:1518:       return std::__bit_width(make_unsigned_t<_Tp>(__n)) - 1;
+	movslq	%edx, %rdx	# tmp126, tmp128
+# /usr/include/c++/13/bits/stl_algo.h:1947: 	  std::__introsort_loop(__first, __last,
+	addq	%rdx, %rdx	# tmp129
+	call	_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0	#
+# /usr/include/c++/13/bits/stl_algo.h:1857:       if (__last - __first > int(_S_threshold))
+	cmpq	$64, %r12	#, _1
+	jg	.L112	#,
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%rbp, %rbx	# __i, _2
+	je	.L110	#,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movl	$4, %r12d	#, tmp145
+	jmp	.L102	#
+	.p2align 4,,10
+	.p2align 3
+.L113:
+# /usr/include/c++/13/bits/stl_algobase.h:746: 	  const ptrdiff_t _Num = __last - __first;
+	movq	%rdi, %rdx	# __last, _61
+	subq	%r14, %rdx	# arr, _61
+# /usr/include/c++/13/bits/stl_algobase.h:747: 	  if (__builtin_expect(_Num > 1, true))
+	cmpq	$4, %rdx	#, _61
+	jle	.L97	#,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movq	%r12, %rax	# tmp145, tmp139
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movq	%r14, %rsi	# arr,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	subq	%rdx, %rax	# _61, tmp139
+	addq	%rax, %rdi	# tmp139, tmp141
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	call	memmove@PLT	#
+.L98:
+# /usr/include/c++/13/bits/stl_algo.h:1824: 	      *__first = _GLIBCXX_MOVE(__val);
+	movl	%r13d, (%r14)	# _51, MEM[(unsigned int *)arr_4(D)]
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%rbp, %rbx	# __i, _2
+	je	.L110	#,
+.L102:
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	0(%rbp), %r13d	# MEM[(unsigned int *)__i_104], _51
+	movl	(%r14), %eax	# MEM[(unsigned int *)arr_4(D)], _52
+	movq	%rbp, %rdi	# __i, __last
+# /usr/include/c++/13/bits/stl_algo.h:1823: 	      _GLIBCXX_MOVE_BACKWARD3(__first, __i, __i + 1);
+	addq	$4, %rbp	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1819: 	  if (__comp(__i, __first))
+	cmpl	%eax, %r13d	# _52, _51
+	jb	.L113	#,
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	-8(%rbp), %edx	# MEM[(unsigned int *)_79 + -8B], _55
+# /usr/include/c++/13/bits/stl_algo.h:1798:       --__next;
+	leaq	-8(%rbp), %rax	#, __next
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %r13d	# _55, _51
+	jnb	.L100	#,
+	.p2align 4,,10
+	.p2align 3
+.L101:
+# /usr/include/c++/13/bits/stl_algo.h:1801: 	  *__last = _GLIBCXX_MOVE(*__next);
+	movl	%edx, 4(%rax)	# _55, MEM[(unsigned int *)__next_108 + 4B]
+	movq	%rax, %rdi	# __next, __last
+# /usr/include/c++/13/bits/stl_algo.h:1803: 	  --__next;
+	subq	$4, %rax	#, __next
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	(%rax), %edx	# MEM[(unsigned int *)__next_58], _55
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %r13d	# _55, _51
+	jb	.L101	#,
+.L100:
+# /usr/include/c++/13/bits/stl_algo.h:1805:       *__last = _GLIBCXX_MOVE(__val);
+	movl	%r13d, (%rdi)	# _51, *__last_107
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%rbp, %rbx	# __i, _2
+	jne	.L102	#,
+.L110:
+# team_cpp/main.cpp:305: }
+	addq	$8, %rsp	#,
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx	#
+	.cfi_def_cfa_offset 48
+	popq	%rbp	#
+	.cfi_def_cfa_offset 40
+	popq	%r12	#
+	.cfi_def_cfa_offset 32
+	popq	%r13	#
+	.cfi_def_cfa_offset 24
+	popq	%r14	#
+	.cfi_def_cfa_offset 16
+	popq	%r15	#
+	.cfi_def_cfa_offset 8
+	ret	
+	.p2align 4,,10
+	.p2align 3
+.L112:
+	.cfi_restore_state
+# /usr/include/c++/13/bits/stl_algo.h:1859: 	  std::__insertion_sort(__first, __first + int(_S_threshold), __comp);
+	leaq	64(%r14), %r12	#, __i
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movl	$4, %r13d	#, tmp144
+	jmp	.L91	#
+	.p2align 4,,10
+	.p2align 3
+.L115:
+# /usr/include/c++/13/bits/stl_algobase.h:746: 	  const ptrdiff_t _Num = __last - __first;
+	movq	%rdi, %rdx	# __last, _38
+	subq	%r14, %rdx	# arr, _38
+# /usr/include/c++/13/bits/stl_algobase.h:747: 	  if (__builtin_expect(_Num > 1, true))
+	cmpq	$4, %rdx	#, _38
+	jle	.L86	#,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movq	%r13, %rax	# tmp144, tmp133
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	movq	%r14, %rsi	# arr,
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	subq	%rdx, %rax	# _38, tmp133
+	addq	%rax, %rdi	# tmp133, tmp135
+# /usr/include/c++/13/bits/stl_algobase.h:748: 	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+	call	memmove@PLT	#
+.L87:
+# /usr/include/c++/13/bits/stl_algo.h:1824: 	      *__first = _GLIBCXX_MOVE(__val);
+	movl	%r15d, (%r14)	# _28, MEM[(unsigned int *)arr_4(D)]
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%rbp, %r12	# __i, __i
+	je	.L114	#,
+.L91:
+# /usr/include/c++/13/bits/predefined_ops.h:45:       { return *__it1 < *__it2; }
+	movl	0(%rbp), %r15d	# MEM[(unsigned int *)__i_41], _28
+	movl	(%r14), %eax	# MEM[(unsigned int *)arr_4(D)], _29
+	movq	%rbp, %rdi	# __i, __last
+# /usr/include/c++/13/bits/stl_algo.h:1823: 	      _GLIBCXX_MOVE_BACKWARD3(__first, __i, __i + 1);
+	addq	$4, %rbp	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1819: 	  if (__comp(__i, __first))
+	cmpl	%eax, %r15d	# _29, _28
+	jb	.L115	#,
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	-8(%rbp), %edx	# MEM[(unsigned int *)_99 + -8B], _32
+# /usr/include/c++/13/bits/stl_algo.h:1798:       --__next;
+	leaq	-8(%rbp), %rax	#, __next
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %r15d	# _32, _28
+	jnb	.L89	#,
+	.p2align 4,,10
+	.p2align 3
+.L90:
+# /usr/include/c++/13/bits/stl_algo.h:1801: 	  *__last = _GLIBCXX_MOVE(*__next);
+	movl	%edx, 4(%rax)	# _32, MEM[(unsigned int *)__next_103 + 4B]
+	movq	%rax, %rdi	# __next, __last
+# /usr/include/c++/13/bits/stl_algo.h:1803: 	  --__next;
+	subq	$4, %rax	#, __next
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	(%rax), %edx	# MEM[(unsigned int *)__next_35], _32
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %r15d	# _32, _28
+	jb	.L90	#,
+.L89:
+# /usr/include/c++/13/bits/stl_algo.h:1805:       *__last = _GLIBCXX_MOVE(__val);
+	movl	%r15d, (%rdi)	# _28, *__last_102
+# /usr/include/c++/13/bits/stl_algo.h:1817:       for (_RandomAccessIterator __i = __first + 1; __i != __last; ++__i)
+	cmpq	%rbp, %r12	# __i, __i
+	jne	.L91	#,
+.L114:
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	cmpq	%r12, %rbx	# __i, _2
+	je	.L110	#,
+	.p2align 4,,10
+	.p2align 3
+.L95:
+# /usr/include/c++/13/bits/stl_algo.h:1796: 	__val = _GLIBCXX_MOVE(*__last);
+	movl	(%r12), %ecx	# MEM[(type &)__i_15], _18
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	-4(%r12), %edx	# MEM[(unsigned int *)__i_15 + -4B], _20
+# /usr/include/c++/13/bits/stl_algo.h:1798:       --__next;
+	leaq	-4(%r12), %rax	#, __next
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %ecx	# _20, _18
+	jnb	.L103	#,
+	.p2align 4,,10
+	.p2align 3
+.L94:
+# /usr/include/c++/13/bits/stl_algo.h:1801: 	  *__last = _GLIBCXX_MOVE(*__next);
+	movl	%edx, 4(%rax)	# _20, MEM[(unsigned int *)__next_36 + 4B]
+	movq	%rax, %rsi	# __next, __last
+# /usr/include/c++/13/bits/stl_algo.h:1803: 	  --__next;
+	subq	$4, %rax	#, __next
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	(%rax), %edx	# MEM[(unsigned int *)__next_23], _20
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %ecx	# _20, _18
+	jb	.L94	#,
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	addq	$4, %r12	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1805:       *__last = _GLIBCXX_MOVE(__val);
+	movl	%ecx, (%rsi)	# _18, *__last_24
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	cmpq	%r12, %rbx	# __i, _2
+	jne	.L95	#,
+	jmp	.L110	#
+	.p2align 4,,10
+	.p2align 3
+.L103:
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	movq	%r12, %rsi	# __i, __last
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	addq	$4, %r12	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1805:       *__last = _GLIBCXX_MOVE(__val);
+	movl	%ecx, (%rsi)	# _18, *__last_24
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	cmpq	%r12, %rbx	# __i, _2
+	jne	.L95	#,
+	jmp	.L110	#
+.L86:
+# /usr/include/c++/13/bits/stl_algobase.h:749: 	  else if (_Num == 1)
+	jne	.L87	#,
+# /usr/include/c++/13/bits/stl_algobase.h:423: 	{ *__to = std::move(*__from); }
+	movl	%eax, -4(%rbp)	# _29, MEM[(unsigned int *)_99 + -4B]
+# /usr/include/c++/13/bits/stl_algobase.h:423: 	{ *__to = std::move(*__from); }
+	jmp	.L87	#
+.L97:
+# /usr/include/c++/13/bits/stl_algobase.h:749: 	  else if (_Num == 1)
+	jne	.L98	#,
+# /usr/include/c++/13/bits/stl_algobase.h:423: 	{ *__to = std::move(*__from); }
+	movl	%eax, -4(%rbp)	# _52, MEM[(unsigned int *)_79 + -4B]
+# /usr/include/c++/13/bits/stl_algobase.h:423: 	{ *__to = std::move(*__from); }
+	jmp	.L98	#
+	.cfi_endproc
+.LFE9137:
+	.size	_Z10radix_sortPjm, .-_Z10radix_sortPjm
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"Usage: "
+.LC1:
+	.string	" <input_file>"
+.LC2:
+	.string	"Failed to open file"
+.LC3:
+	.string	"Failed to get file size"
+.LC4:
+	.string	"Failed to mmap file"
+.LC5:
+	.string	"Sum of top 50%: "
+	.section	.text.startup,"ax",@progbits
+	.p2align 4
+	.globl	main
+	.type	main, @function
+main:
 .LFB9138:
 	.cfi_startproc
 	endbr64	
@@ -90,353 +907,51 @@ _Z10radix_sortPjm:
 	pushq	%r13	#
 	pushq	%r12	#
 	pushq	%rbx	#
-	andq	$-64, %rsp	#,
-	subq	$2176, %rsp	#,
 	.cfi_offset 15, -24
 	.cfi_offset 14, -32
 	.cfi_offset 13, -40
 	.cfi_offset 12, -48
 	.cfi_offset 3, -56
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	movq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp307
-	movq	%rax, 2168(%rsp)	# tmp307, D.101336
-	movabsq	$2305843009213693950, %rax	#, tmp307
-	cmpq	%rsi, %rax	# n, tmp199
-	jb	.L9	#,
-	movq	%rdi, %r15	# tmp304, arr
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	leaq	0(,%rsi,4), %rdi	#, tmp200
-	movq	%rsi, %r13	# tmp305, n
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	call	_Znam@PLT	#
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	leaq	64(%rsp), %rdi	#, tmp302
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	movq	%rax, %r14	# tmp306, _7
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	call	memset@PLT	#
-	movq	%rax, %rdi	#, tmp302
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	testq	%r13, %r13	# n
-	je	.L10	#,
-	movq	%r15, %r8	# arr, ivtmp.165
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%esi, %esi	# _107
-	.p2align 4,,10
-	.p2align 3
-.L13:
-	movq	%rsi, %rdx	# _107, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %rsi	#, _107
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%rsi, %r13	# _107, n
-	movq	%rsi, %rax	# _107, _156
-	cmovbe	%r13, %rax	# n,, _156
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _156, block_start
-	jnb	.L11	#,
-	leaq	(%r15,%rax,4), %rcx	#, _312
-	movq	%r8, %rax	# ivtmp.165, ivtmp.160
-	.p2align 4,,10
-	.p2align 3
-.L12:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	(%rax), %edx	# MEM[(uint32_t *)_315], _114
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.160
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_114]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rcx	# ivtmp.160, _312
-	jne	.L12	#,
-.L11:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r8	#, ivtmp.165
-	cmpq	%r13, %rsi	# n, _107
-	jb	.L13	#,
-.L10:
-	leaq	72(%rsp), %rax	#, ivtmp.69
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.52
-	leaq	2112(%rsp), %r12	#, _363
-	movq	%rax, 56(%rsp)	# ivtmp.69, %sfp
-	.p2align 4,,10
-	.p2align 3
-.L14:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_324], count_I_lsm0.52
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.153
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.52, MEM[(long unsigned int *)_324]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%rax, %r12	# ivtmp.153, _363
-	jne	.L14	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	leaq	-1(%r13), %rbx	#, i
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L15	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	movq	%rbx, %rdx	# i, i
-	.p2align 4,,10
-	.p2align 3
-.L16:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r15,%rdx,4), %esi	# MEM[(uint32_t *)arr_8(D) + i_224 * 4], _128
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movzbl	%sil, %r8d	# _128, _130
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%r8,8), %rax	# MEM[(long unsigned int[256] *)_415][_130], tmp313
-	decq	%rax	# _132
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%r8,8)	# _132, MEM[(long unsigned int[256] *)_415][_130]
-	movl	%esi, (%r14,%rax,4)	# _128, *_134
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rdx	#, i
-	jnb	.L16	#,
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%r14, %r9	# _7, ivtmp.137
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%r8d, %r8d	# _75
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movq	%rax, %rdi	#, tmp302
-	.p2align 4,,10
-	.p2align 3
-.L21:
-	movq	%r8, %rdx	# _75, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %r8	#, _75
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%r8, %r13	# _75, n
-	movq	%r8, %rax	# _75, _167
-	cmovbe	%r13, %rax	# n,, _167
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _167, block_start
-	jnb	.L19	#,
-	leaq	(%r14,%rax,4), %rsi	#, _333
-	movq	%r9, %rax	# ivtmp.137, ivtmp.132
-	.p2align 4,,10
-	.p2align 3
-.L20:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	1(%rax), %edx	# MEM[(uint32_t *)_336], _83
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.132
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_83]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rsi	# ivtmp.132, _333
-	jne	.L20	#,
-.L19:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r9	#, ivtmp.137
-	cmpq	%r13, %r8	# n, _75
-	jb	.L21	#,
-.L18:
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.51
-	movq	56(%rsp), %rax	# %sfp, ivtmp.125
-	.p2align 4,,10
-	.p2align 3
-.L22:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_345], count_I_lsm0.51
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.125
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.51, MEM[(long unsigned int *)_345]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%rax, %r12	# ivtmp.125, _363
-	jne	.L22	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L23	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	movq	%rbx, %rdx	# i, i
-	.p2align 4,,10
-	.p2align 3
-.L24:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r14,%rdx,4), %ecx	# MEM[(uint32_t *)_7 + i_220 * 4], _97
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movzbl	%ch, %esi	# _97, _100
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%rsi,8), %rax	# MEM[(long unsigned int[256] *)_415][_100], tmp315
-	decq	%rax	# _102
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%rsi,8)	# _102, MEM[(long unsigned int[256] *)_415][_100]
-	movl	%ecx, (%r15,%rax,4)	# _97, *_104
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rdx	#, i
-	jnb	.L24	#,
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%r15, %r9	# arr, ivtmp.109
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%r8d, %r8d	# _43
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movq	%rax, %rdi	#, tmp302
-	.p2align 4,,10
-	.p2align 3
-.L29:
-	movq	%r8, %rdx	# _43, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %r8	#, _43
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%r8, %r13	# _43, n
-	movq	%r8, %rax	# _43, _178
-	cmovbe	%r13, %rax	# n,, _178
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _178, block_start
-	jnb	.L27	#,
-	leaq	(%r15,%rax,4), %rsi	#, _354
-	movq	%r9, %rax	# ivtmp.109, ivtmp.104
-	.p2align 4,,10
-	.p2align 3
-.L28:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	2(%rax), %edx	# MEM[(uint32_t *)_401], _51
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.104
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_51]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rsi	# ivtmp.104, _354
-	jne	.L28	#,
-.L27:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r9	#, ivtmp.109
-	cmpq	%r13, %r8	# n, _43
-	jb	.L29	#,
-.L26:
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.50
-	movq	56(%rsp), %rax	# %sfp, ivtmp.97
-	.p2align 4,,10
-	.p2align 3
-.L30:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_392], count_I_lsm0.50
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.97
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.50, MEM[(long unsigned int *)_392]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%r12, %rax	# _363, ivtmp.97
-	jne	.L30	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L31	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	movq	%rbx, %rsi	# i, i
-	.p2align 4,,10
-	.p2align 3
-.L32:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r15,%rsi,4), %r8d	# MEM[(uint32_t *)arr_8(D) + i_216 * 4], _65
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	%r8d, %edx	# _65, tmp270
-	shrl	$16, %edx	#, tmp270
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movzbl	%dl, %edx	# tmp270, _68
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%rdx,8), %rax	# MEM[(long unsigned int[256] *)_415][_68], tmp318
-	decq	%rax	# _70
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%rdx,8)	# _70, MEM[(long unsigned int[256] *)_415][_68]
-	movl	%r8d, (%r14,%rax,4)	# _65, *_72
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rsi	#, i
-	jnb	.L32	#,
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%r14, %r8	# _7, ivtmp.81
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%edi, %edi	# _12
-	.p2align 4,,10
-	.p2align 3
-.L37:
-	movq	%rdi, %rdx	# _12, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %rdi	#, _12
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%rdi, %r13	# _12, n
-	movq	%rdi, %rax	# _12, _189
-	cmovbe	%r13, %rax	# n,, _189
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _189, block_start
-	jnb	.L35	#,
-	leaq	(%r14,%rax,4), %rsi	#, _372
-	movq	%r8, %rax	# ivtmp.81, ivtmp.76
-	.p2align 4,,10
-	.p2align 3
-.L36:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	3(%rax), %edx	# MEM[(uint32_t *)_369], _19
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.76
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_19]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rsi, %rax	# _372, ivtmp.76
-	jne	.L36	#,
-.L35:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r8	#, ivtmp.81
-	cmpq	%r13, %rdi	# n, _12
-	jb	.L37	#,
-.L34:
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.49
-	movq	56(%rsp), %rax	# %sfp, ivtmp.69
-	.p2align 4,,10
-	.p2align 3
-.L38:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_360], count_I_lsm0.49
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.69
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.49, MEM[(long unsigned int *)_360]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%r12, %rax	# _363, ivtmp.69
-	jne	.L38	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L39	#,
-	.p2align 4,,10
-	.p2align 3
-.L40:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r14,%rbx,4), %esi	# MEM[(uint32_t *)_7 + i_108 * 4], _33
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	%esi, %edx	# _33, _35
-	shrl	$24, %edx	#,
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%rdx,8), %rax	# MEM[(long unsigned int[256] *)_415][_35], tmp321
-	decq	%rax	# _37
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%rdx,8)	# _37, MEM[(long unsigned int[256] *)_415][_35]
-	movl	%esi, (%r15,%rax,4)	# _33, *_39
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rbx	#, i
-	jnb	.L40	#,
-.L39:
-# team_cpp/main.cpp:160:     delete[] temp;
-	movq	2168(%rsp), %rax	# D.101336, tmp308
-	subq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp308
-	jne	.L70	#,
-# team_cpp/main.cpp:161: }
+	movq	%rsi, %rbx	# tmp224, argv
+	andq	$-32, %rsp	#,
+	subq	$160, %rsp	#,
+# team_cpp/main.cpp:309: int main(int argc, char* argv[]) {
+	movq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp230
+	movq	%rax, 152(%rsp)	# tmp230, D.102513
+	xorl	%eax, %eax	# tmp230
+# team_cpp/main.cpp:310:     if (argc != 2) {
+	cmpl	$2, %edi	#, tmp223
+	je	.L117	#,
+# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
+	leaq	_ZSt4cerr(%rip), %r12	#, tmp165
+	movl	$7, %edx	#,
+	leaq	.LC0(%rip), %rsi	#, tmp164
+	movq	%r12, %rdi	# tmp165,
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
+# team_cpp/main.cpp:311:         std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+	movq	(%rbx), %rsi	# *argv_14(D),
+	movq	%r12, %rdi	# tmp165,
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT	#
+# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
+	movl	$13, %edx	#,
+	leaq	.LC1(%rip), %rsi	#, tmp167
+# team_cpp/main.cpp:311:         std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+	movq	%rax, %rbx	# tmp225, _32
+# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
+	movq	%rax, %rdi	# _32,
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
+# /usr/include/c++/13/ostream:115: 	return __pf(*this);
+	movq	%rbx, %rdi	# _32,
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
+.L118:
+# team_cpp/main.cpp:312:         return 1;
+	movl	$1, %eax	#, <retval>
+.L116:
+# team_cpp/main.cpp:366: }
+	movq	152(%rsp), %rdx	# D.102513, tmp231
+	subq	%fs:40, %rdx	# MEM[(<address-space-1> long unsigned int *)40B], tmp231
+	jne	.L153	#,
 	leaq	-40(%rbp), %rsp	#,
-# team_cpp/main.cpp:160:     delete[] temp;
-	movq	%r14, %rdi	# _7,
-# team_cpp/main.cpp:161: }
 	popq	%rbx	#
 	popq	%r12	#
 	popq	%r13	#
@@ -445,354 +960,295 @@ _Z10radix_sortPjm:
 	popq	%rbp	#
 	.cfi_remember_state
 	.cfi_def_cfa 7, 8
-# team_cpp/main.cpp:160:     delete[] temp;
-	jmp	_ZdaPv@PLT	#
-.L15:
-	.cfi_restore_state
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%rax, %rdi	#, tmp302
-	jmp	.L18	#
-.L23:
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%rax, %rdi	#, tmp302
-	jmp	.L26	#
-.L31:
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	jmp	.L34	#
-.L70:
-# team_cpp/main.cpp:160:     delete[] temp;
-	call	__stack_chk_fail@PLT	#
-	.cfi_endproc
-	.section	.text.unlikely
-	.cfi_startproc
-	.type	_Z10radix_sortPjm.cold, @function
-_Z10radix_sortPjm.cold:
-.LFSB9138:
-.L9:
-	.cfi_def_cfa 6, 16
-	.cfi_offset 3, -56
-	.cfi_offset 6, -16
-	.cfi_offset 12, -48
-	.cfi_offset 13, -40
-	.cfi_offset 14, -32
-	.cfi_offset 15, -24
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	movq	2168(%rsp), %rax	# D.101336, tmp309
-	subq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp309
-	jne	.L71	#,
-	call	__cxa_throw_bad_array_new_length@PLT	#
-.L71:
-	call	__stack_chk_fail@PLT	#
-	.cfi_endproc
-.LFE9138:
-	.text
-	.size	_Z10radix_sortPjm, .-_Z10radix_sortPjm
-	.section	.text.unlikely
-	.size	_Z10radix_sortPjm.cold, .-_Z10radix_sortPjm.cold
-.LCOLDE0:
-	.text
-.LHOTE0:
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.LC1:
-	.string	"Usage: "
-.LC2:
-	.string	" <input_file>"
-.LC3:
-	.string	"Failed to open file"
-.LC4:
-	.string	"Failed to get file size"
-.LC5:
-	.string	"Failed to mmap file"
-.LC6:
-	.string	"Sum of top 50%: "
-	.section	.text.startup,"ax",@progbits
-	.p2align 4
-	.globl	main
-	.type	main, @function
-main:
-.LFB9139:
-	.cfi_startproc
-	endbr64	
-	pushq	%rbp	#
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp	#,
-	.cfi_def_cfa_register 6
-	pushq	%r14	#
-	pushq	%r13	#
-	pushq	%r12	#
-	pushq	%rbx	#
-	.cfi_offset 14, -24
-	.cfi_offset 13, -32
-	.cfi_offset 12, -40
-	.cfi_offset 3, -48
-	movq	%rsi, %rbx	# tmp202, argv
-	andq	$-32, %rsp	#,
-	subq	$160, %rsp	#,
-# team_cpp/main.cpp:218: int main(int argc, char* argv[]) {
-	movq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp208
-	movq	%rax, 152(%rsp)	# tmp208, D.101388
-	xorl	%eax, %eax	# tmp208
-# team_cpp/main.cpp:219:     if (argc != 2) {
-	cmpl	$2, %edi	#, tmp201
-	je	.L73	#,
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	leaq	_ZSt4cerr(%rip), %r12	#, tmp149
-	movl	$7, %edx	#,
-	leaq	.LC1(%rip), %rsi	#, tmp148
-	movq	%r12, %rdi	# tmp149,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# team_cpp/main.cpp:220:         std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
-	movq	(%rbx), %rsi	# *argv_14(D),
-	movq	%r12, %rdi	# tmp149,
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT	#
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	movl	$13, %edx	#,
-	leaq	.LC2(%rip), %rsi	#, tmp151
-# team_cpp/main.cpp:220:         std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
-	movq	%rax, %rbx	# tmp203, _33
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	movq	%rax, %rdi	# _33,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	movq	%rbx, %rdi	# _33,
-	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-.L74:
-# team_cpp/main.cpp:221:         return 1;
-	movl	$1, %eax	#, <retval>
-.L72:
-# team_cpp/main.cpp:275: }
-	movq	152(%rsp), %rdx	# D.101388, tmp209
-	subq	%fs:40, %rdx	# MEM[(<address-space-1> long unsigned int *)40B], tmp209
-	jne	.L99	#,
-	leaq	-32(%rbp), %rsp	#,
-	popq	%rbx	#
-	popq	%r12	#
-	popq	%r13	#
-	popq	%r14	#
-	popq	%rbp	#
-	.cfi_remember_state
-	.cfi_def_cfa 7, 8
 	ret	
-.L73:
+.L117:
 	.cfi_restore_state
 # /usr/include/x86_64-linux-gnu/bits/fcntl2.h:53:       return __open_alias (__path, __oflag, __va_arg_pack ());
 	movq	8(%rsi), %rdi	# MEM[(char * *)argv_14(D) + 8B], MEM[(char * *)argv_14(D) + 8B]
 	xorl	%eax, %eax	#
 	xorl	%esi, %esi	#
 	call	open@PLT	#
-	movl	%eax, %ebx	# tmp204, _35
-# team_cpp/main.cpp:228:     if (fd == -1) {
-	cmpl	$-1, %eax	#, _35
-	je	.L100	#,
-# team_cpp/main.cpp:235:     if (fstat(fd, &sb) == -1) {
-	movq	%rsp, %rsi	#, tmp156
-	movl	%eax, %edi	# _35,
+	movl	%eax, %r13d	# tmp226, _34
+# team_cpp/main.cpp:319:     if (fd == -1) {
+	cmpl	$-1, %eax	#, _34
+	je	.L154	#,
+# team_cpp/main.cpp:326:     if (fstat(fd, &sb) == -1) {
+	movq	%rsp, %rsi	#, tmp172
+	movl	%eax, %edi	# _34,
 	call	fstat@PLT	#
 # /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
 	movl	$23, %edx	#,
-	leaq	.LC4(%rip), %rsi	#, tmp157
-# team_cpp/main.cpp:235:     if (fstat(fd, &sb) == -1) {
-	incl	%eax	# tmp205
-	je	.L98	#,
-# team_cpp/main.cpp:241:     size_t file_size = sb.st_size;
-	movq	48(%rsp), %r13	# sb.st_size, file_size
-# team_cpp/main.cpp:245:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
+	leaq	.LC3(%rip), %rsi	#, tmp173
+# team_cpp/main.cpp:326:     if (fstat(fd, &sb) == -1) {
+	incl	%eax	# tmp227
+	je	.L152	#,
+# team_cpp/main.cpp:332:     size_t file_size = sb.st_size;
+	movq	48(%rsp), %rbx	# sb.st_size, file_size
+# team_cpp/main.cpp:336:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
 	xorl	%r9d, %r9d	#
-	movl	%ebx, %r8d	# _35,
+	movl	%r13d, %r8d	# _34,
 	movl	$32770, %ecx	#,
 	movl	$3, %edx	#,
 	xorl	%edi, %edi	#
-	movq	%r13, %rsi	# file_size,
-# team_cpp/main.cpp:242:     size_t num_integers = file_size / sizeof(uint32_t);
-	movq	%r13, %r14	# file_size, num_integers
-# team_cpp/main.cpp:245:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
+	movq	%rbx, %rsi	# file_size,
+# team_cpp/main.cpp:333:     size_t num_integers = file_size / sizeof(uint32_t);
+	movq	%rbx, %r12	# file_size, num_integers
+# team_cpp/main.cpp:336:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
 	call	mmap@PLT	#
-# team_cpp/main.cpp:242:     size_t num_integers = file_size / sizeof(uint32_t);
-	shrq	$2, %r14	#, num_integers
-# team_cpp/main.cpp:245:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
-	movq	%rax, %r12	# tmp206, mapped
-# team_cpp/main.cpp:247:     if (mapped == MAP_FAILED) {
+# team_cpp/main.cpp:333:     size_t num_integers = file_size / sizeof(uint32_t);
+	shrq	$2, %r12	#, num_integers
+# team_cpp/main.cpp:336:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
+	movq	%rax, %r14	# tmp228, mapped
+# team_cpp/main.cpp:338:     if (mapped == MAP_FAILED) {
 	cmpq	$-1, %rax	#, mapped
-	je	.L101	#,
-# team_cpp/main.cpp:254:     madvise(mapped, file_size, MADV_SEQUENTIAL | MADV_WILLNEED);
+	je	.L155	#,
+# team_cpp/main.cpp:345:     madvise(mapped, file_size, MADV_SEQUENTIAL | MADV_WILLNEED);
 	movl	$3, %edx	#,
-	movq	%r13, %rsi	# file_size,
+	movq	%rbx, %rsi	# file_size,
 	movq	%rax, %rdi	# mapped,
 	call	madvise@PLT	#
-# team_cpp/main.cpp:256:     close(fd);
-	movl	%ebx, %edi	# _35,
+# team_cpp/main.cpp:347:     close(fd);
+	movl	%r13d, %edi	# _34,
+	movq	%rbx, %r13	# file_size, _38
 	call	close@PLT	#
-# team_cpp/main.cpp:261:     radix_sort(numbers, num_integers);
-	movq	%r14, %rsi	# num_integers,
-	movq	%r12, %rdi	# mapped,
-	call	_Z10radix_sortPjm	#
-# team_cpp/main.cpp:264:     size_t top_half_start = num_integers / 2;
-	movq	%r13, %rcx	# file_size, top_half_start
-	shrq	$3, %rcx	#, top_half_start
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	cmpq	%r14, %rcx	# num_integers, top_half_start
-	jnb	.L87	#,
-	movq	%r14, %rdx	# num_integers, niters.170
-	subq	%rcx, %rdx	# top_half_start, niters.170
-	leaq	-1(%rdx), %rax	#, tmp163
-	cmpq	$6, %rax	#, tmp163
-	jbe	.L88	#,
-	movq	%rdx, %rsi	# niters.170, bnd.171
-	leaq	(%r12,%rcx,4), %rax	#, ivtmp.197
-	vpxor	%xmm2, %xmm2, %xmm2	# vect_sum_28.179
-	shrq	$3, %rsi	#, bnd.171
-	salq	$5, %rsi	#, tmp166
-	addq	%rax, %rsi	# ivtmp.197, _111
+	andq	$-4, %r13	#, _38
+# team_cpp/main.cpp:304:     std::sort(arr, arr + n);
+	leaq	(%r14,%r13), %r15	#, _36
+# /usr/include/c++/13/bits/stl_algo.h:1945:       if (__first != __last)
+	cmpq	%r15, %r14	# _36, mapped
+	je	.L124	#,
+# /usr/include/c++/13/bits/stl_algo.h:1948: 				std::__lg(__last - __first) * 2,
+	movq	%rbx, %rax	# file_size, tmp179
+# /usr/include/c++/13/bits/stl_algobase.h:1518:       return std::__bit_width(make_unsigned_t<_Tp>(__n)) - 1;
+	movl	$63, %edx	#, tmp182
+# /usr/include/c++/13/bits/stl_algo.h:1947: 	  std::__introsort_loop(__first, __last,
+	movq	%r15, %rsi	# _36,
+	movq	%r14, %rdi	# mapped,
+# /usr/include/c++/13/bits/stl_algo.h:1948: 				std::__lg(__last - __first) * 2,
+	sarq	$2, %rax	#, tmp179
+# /usr/include/c++/13/bit:215: 	  return __builtin_clzl(__x) - __diff;
+	lzcntq	%rax, %rax	# tmp179, tmp180
+# /usr/include/c++/13/bits/stl_algobase.h:1518:       return std::__bit_width(make_unsigned_t<_Tp>(__n)) - 1;
+	subl	%eax, %edx	# tmp180, tmp181
+# /usr/include/c++/13/bits/stl_algobase.h:1518:       return std::__bit_width(make_unsigned_t<_Tp>(__n)) - 1;
+	movslq	%edx, %rdx	# tmp181, tmp183
+# /usr/include/c++/13/bits/stl_algo.h:1947: 	  std::__introsort_loop(__first, __last,
+	addq	%rdx, %rdx	# tmp183, tmp184
+	call	_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_.isra.0	#
+# /usr/include/c++/13/bits/stl_algo.h:1857:       if (__last - __first > int(_S_threshold))
+	cmpq	$64, %r13	#, _38
+	jle	.L125	#,
+# /usr/include/c++/13/bits/stl_algo.h:1859: 	  std::__insertion_sort(__first, __first + int(_S_threshold), __comp);
+	leaq	64(%r14), %r13	#, __i
+	movq	%r14, %rdi	# mapped,
+	movq	%r13, %rsi	# __i,
+	call	_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.isra.0	#
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	cmpq	%r13, %r15	# __i, _36
+	je	.L124	#,
 	.p2align 4,,10
 	.p2align 3
-.L81:
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	vmovdqu	(%rax), %ymm0	# MEM <vector(8) unsigned int> [(uint32_t *)_50], MEM <vector(8) unsigned int> [(uint32_t *)_50]
-	addq	$32, %rax	#, ivtmp.197
-	vpmovzxdq	%xmm0, %ymm1	# MEM <vector(8) unsigned int> [(uint32_t *)_50],
-	vextracti128	$0x1, %ymm0, %xmm0	# MEM <vector(8) unsigned int> [(uint32_t *)_50], tmp171
-	vpmovzxdq	%xmm0, %ymm0	# tmp171, vect__7.178
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	vpaddq	%ymm0, %ymm1, %ymm0	# vect__7.178, vect__7.178, tmp172
-	vpaddq	%ymm0, %ymm2, %ymm2	# tmp172, vect_sum_28.179, vect_sum_28.179
-	cmpq	%rsi, %rax	# _111, ivtmp.197
-	jne	.L81	#,
-	vmovdqa	%xmm2, %xmm0	# vect_sum_28.179, tmp173
-	vextracti64x2	$0x1, %ymm2, %xmm2	# vect_sum_28.179, tmp174
-	movq	%rdx, %rsi	# niters.170, niters_vector_mult_vf.172
-	vpaddq	%xmm2, %xmm0, %xmm2	# tmp174, tmp173, _84
-	andq	$-8, %rsi	#, niters_vector_mult_vf.172
-	vpsrldq	$8, %xmm2, %xmm0	#, _84, tmp176
-	leaq	(%rcx,%rsi), %rax	#, tmp.184
-	vpaddq	%xmm0, %xmm2, %xmm0	# tmp176, _84, tmp177
-	vmovq	%xmm0, %rbx	# tmp177, stmp_sum_53.191
-	testb	$7, %dl	#, niters.170
-	je	.L102	#,
+.L129:
+# /usr/include/c++/13/bits/stl_algo.h:1796: 	__val = _GLIBCXX_MOVE(*__last);
+	movl	0(%r13), %ecx	# MEM[(type &)__i_84], _64
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	-4(%r13), %edx	# MEM[(unsigned int *)__i_84 + -4B], _66
+# /usr/include/c++/13/bits/stl_algo.h:1798:       --__next;
+	leaq	-4(%r13), %rax	#, __next
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %ecx	# _66, _64
+	jnb	.L138	#,
+	.p2align 4,,10
+	.p2align 3
+.L128:
+# /usr/include/c++/13/bits/stl_algo.h:1801: 	  *__last = _GLIBCXX_MOVE(*__next);
+	movl	%edx, 4(%rax)	# _66, MEM[(unsigned int *)__next_88 + 4B]
+	movq	%rax, %rsi	# __next, __last
+# /usr/include/c++/13/bits/stl_algo.h:1803: 	  --__next;
+	subq	$4, %rax	#, __next
+# /usr/include/c++/13/bits/predefined_ops.h:98:       { return __val < *__it; }
+	movl	(%rax), %edx	# MEM[(unsigned int *)__next_69], _66
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	cmpl	%edx, %ecx	# _66, _64
+	jb	.L128	#,
+.L127:
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	addq	$4, %r13	#, __i
+# /usr/include/c++/13/bits/stl_algo.h:1805:       *__last = _GLIBCXX_MOVE(__val);
+	movl	%ecx, (%rsi)	# _64, *__last_87
+# /usr/include/c++/13/bits/stl_algo.h:1839:       for (_RandomAccessIterator __i = __first; __i != __last; ++__i)
+	cmpq	%r13, %r15	# __i, _36
+	jne	.L129	#,
+.L124:
+# team_cpp/main.cpp:355:     size_t top_half_start = num_integers / 2;
+	movq	%rbx, %rsi	# file_size, top_half_start
+	shrq	$3, %rsi	#, top_half_start
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
+	cmpq	%r12, %rsi	# num_integers, top_half_start
+	jnb	.L139	#,
+	movq	%r12, %rdx	# num_integers, niters.228
+	subq	%rsi, %rdx	# top_half_start, niters.228
+	leaq	-1(%rdx), %rax	#, tmp185
+	cmpq	$6, %rax	#, tmp185
+	jbe	.L140	#,
+	movq	%rdx, %rcx	# niters.228, bnd.229
+	leaq	(%r14,%rsi,4), %rax	#, ivtmp.255
+	vpxor	%xmm2, %xmm2, %xmm2	# vect_sum_27.237
+	shrq	$3, %rcx	#, bnd.229
+	salq	$5, %rcx	#, tmp188
+	addq	%rax, %rcx	# ivtmp.255, _81
+	.p2align 4,,10
+	.p2align 3
+.L132:
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	vmovdqu	(%rax), %ymm0	# MEM <vector(8) unsigned int> [(uint32_t *)_144], MEM <vector(8) unsigned int> [(uint32_t *)_144]
+	addq	$32, %rax	#, ivtmp.255
+	vpmovzxdq	%xmm0, %ymm1	# MEM <vector(8) unsigned int> [(uint32_t *)_144],
+	vextracti128	$0x1, %ymm0, %xmm0	# MEM <vector(8) unsigned int> [(uint32_t *)_144], tmp193
+	vpmovzxdq	%xmm0, %ymm0	# tmp193, vect__7.236
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	vpaddq	%ymm0, %ymm1, %ymm0	# vect__7.236, vect__7.236, tmp194
+	vpaddq	%ymm0, %ymm2, %ymm2	# tmp194, vect_sum_27.237, vect_sum_27.237
+	cmpq	%rax, %rcx	# ivtmp.255, _81
+	jne	.L132	#,
+	vmovdqa	%xmm2, %xmm0	# vect_sum_27.237, tmp195
+	vextracti64x2	$0x1, %ymm2, %xmm2	# vect_sum_27.237, tmp196
+	movq	%rdx, %rcx	# niters.228, niters_vector_mult_vf.230
+	vpaddq	%xmm2, %xmm0, %xmm2	# tmp196, tmp195, _117
+	andq	$-8, %rcx	#, niters_vector_mult_vf.230
+	vpsrldq	$8, %xmm2, %xmm0	#, _117, tmp198
+	leaq	(%rsi,%rcx), %rax	#, tmp.242
+	vpaddq	%xmm0, %xmm2, %xmm0	# tmp198, _117, tmp199
+	vmovq	%xmm0, %r13	# tmp199, stmp_sum_54.249
+	testb	$7, %dl	#, niters.228
+	je	.L156	#,
 	vzeroupper
-.L80:
-	subq	%rsi, %rdx	# niters_vector_mult_vf.172, niters.181
-	leaq	-1(%rdx), %rdi	#, tmp179
-	cmpq	$2, %rdi	#, tmp179
-	jbe	.L84	#,
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rsi, %rcx	# niters_vector_mult_vf.172, tmp180
-	vmovdqu	(%r12,%rcx,4), %xmm1	# MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116], MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116]
-	movq	%rdx, %rcx	# niters.181, niters_vector_mult_vf.183
-	andq	$-4, %rcx	#, niters_vector_mult_vf.183
-	vpmovzxdq	%xmm1, %xmm0	# MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116], vect__54.189
-	vpsrldq	$8, %xmm1, %xmm1	#, MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116], tmp184
-	addq	%rcx, %rax	# niters_vector_mult_vf.183, tmp.184
-	andb	$3, %dl	#, niters.181
-	vpmovzxdq	%xmm1, %xmm1	# tmp184, vect__54.189
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	vpaddq	%xmm1, %xmm0, %xmm0	# vect__54.189, vect__54.189, tmp185
-	vpaddq	%xmm2, %xmm0, %xmm0	# _84, tmp185, vect_sum_53.190
-	vpsrldq	$8, %xmm0, %xmm1	#, vect_sum_53.190, tmp187
-	vpaddq	%xmm1, %xmm0, %xmm0	# tmp187, vect_sum_53.190, tmp188
-	vmovq	%xmm0, %rbx	# tmp188, stmp_sum_53.191
-	je	.L79	#,
-.L84:
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	movl	(%r12,%rax,4), %ecx	# *_5, *_5
+.L131:
+	subq	%rcx, %rdx	# niters_vector_mult_vf.230, niters.239
+	leaq	-1(%rdx), %rdi	#, tmp201
+	cmpq	$2, %rdi	#, tmp201
+	jbe	.L135	#,
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	addq	%rcx, %rsi	# niters_vector_mult_vf.230, tmp202
+	movq	%rdx, %rcx	# niters.239, niters_vector_mult_vf.241
+	vmovdqu	(%r14,%rsi,4), %xmm1	# MEM <vector(4) unsigned int> [(uint32_t *)vectp.245_149], MEM <vector(4) unsigned int> [(uint32_t *)vectp.245_149]
+	andq	$-4, %rcx	#, niters_vector_mult_vf.241
+	addq	%rcx, %rax	# niters_vector_mult_vf.241, tmp.242
+	andb	$3, %dl	#, niters.239
+	vpmovzxdq	%xmm1, %xmm0	# MEM <vector(4) unsigned int> [(uint32_t *)vectp.245_149], vect__55.247
+	vpsrldq	$8, %xmm1, %xmm1	#, MEM <vector(4) unsigned int> [(uint32_t *)vectp.245_149], tmp206
+	vpmovzxdq	%xmm1, %xmm1	# tmp206, vect__55.247
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	vpaddq	%xmm1, %xmm0, %xmm0	# vect__55.247, vect__55.247, tmp207
+	vpaddq	%xmm2, %xmm0, %xmm0	# _117, tmp207, vect_sum_54.248
+	vpsrldq	$8, %xmm0, %xmm1	#, vect_sum_54.248, tmp209
+	vpaddq	%xmm1, %xmm0, %xmm0	# tmp209, vect_sum_54.248, tmp210
+	vmovq	%xmm0, %r13	# tmp210, stmp_sum_54.249
+	je	.L130	#,
+.L135:
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	movl	(%r14,%rax,4), %ecx	# *_5, *_5
 	leaq	0(,%rax,4), %rdx	#, _4
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rcx, %rbx	# *_5, stmp_sum_53.191
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	addq	%rcx, %r13	# *_5, stmp_sum_54.249
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
 	leaq	1(%rax), %rcx	#, i
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	cmpq	%r14, %rcx	# num_integers, i
-	jnb	.L79	#,
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	movl	4(%r12,%rdx), %ecx	# *_56, *_56
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
+	cmpq	%r12, %rcx	# num_integers, i
+	jnb	.L130	#,
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	movl	4(%r14,%rdx), %ecx	# *_61, *_61
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
 	addq	$2, %rax	#, i
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rcx, %rbx	# *_56, stmp_sum_53.191
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	cmpq	%r14, %rax	# num_integers, i
-	jnb	.L79	#,
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	movl	8(%r12,%rdx), %eax	# *_96, *_96
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rax, %rbx	# *_96, stmp_sum_53.191
-.L79:
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	addq	%rcx, %r13	# *_61, stmp_sum_54.249
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
+	cmpq	%r12, %rax	# num_integers, i
+	jnb	.L130	#,
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	movl	8(%r14,%rdx), %eax	# *_129, *_129
+# team_cpp/main.cpp:358:         sum += numbers[i];
+	addq	%rax, %r13	# *_129, stmp_sum_54.249
+.L130:
 # /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	leaq	_ZSt4cout(%rip), %r14	#, tmp197
+	leaq	_ZSt4cout(%rip), %r12	#, tmp219
 	movl	$16, %edx	#,
-	leaq	.LC6(%rip), %rsi	#, tmp196
-	movq	%r14, %rdi	# tmp197,
+	leaq	.LC5(%rip), %rsi	#, tmp218
+	movq	%r12, %rdi	# tmp219,
 	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
 # /usr/include/c++/13/ostream:173:       { return _M_insert(__n); }
-	movq	%rbx, %rsi	# stmp_sum_53.191,
-	movq	%r14, %rdi	# tmp197,
+	movq	%r13, %rsi	# stmp_sum_54.249,
+	movq	%r12, %rdi	# tmp219,
 	call	_ZNSo9_M_insertImEERSoT_@PLT	#
-	movq	%rax, %rdi	# tmp207, _36
+	movq	%rax, %rdi	# tmp229, _37
 # /usr/include/c++/13/ostream:115: 	return __pf(*this);
 	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-# team_cpp/main.cpp:272:     munmap(mapped, file_size);
-	movq	%r13, %rsi	# file_size,
-	movq	%r12, %rdi	# mapped,
+# team_cpp/main.cpp:363:     munmap(mapped, file_size);
+	movq	%rbx, %rsi	# file_size,
+	movq	%r14, %rdi	# mapped,
 	call	munmap@PLT	#
-# team_cpp/main.cpp:274:     return 0;
+# team_cpp/main.cpp:365:     return 0;
 	xorl	%eax, %eax	# <retval>
-	jmp	.L72	#
-.L101:
+	jmp	.L116	#
+.L154:
 # /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
+	leaq	_ZSt4cerr(%rip), %rbx	#, tmp170
 	movl	$19, %edx	#,
-	leaq	.LC5(%rip), %rsi	#, tmp160
-.L98:
-	leaq	_ZSt4cerr(%rip), %r12	#, tmp161
-	movq	%r12, %rdi	# tmp161,
+	leaq	.LC2(%rip), %rsi	#, tmp169
+	movq	%rbx, %rdi	# tmp170,
 	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
 # /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	movq	%r12, %rdi	# tmp161,
+	movq	%rbx, %rdi	# tmp170,
 	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-# team_cpp/main.cpp:249:         close(fd);
-	movl	%ebx, %edi	# _35,
+# team_cpp/main.cpp:321:         return 1;
+	jmp	.L118	#
+.L155:
+# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
+	movl	$19, %edx	#,
+	leaq	.LC4(%rip), %rsi	#, tmp176
+.L152:
+	leaq	_ZSt4cerr(%rip), %rbx	#, tmp177
+	movq	%rbx, %rdi	# tmp177,
+	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
+# /usr/include/c++/13/ostream:115: 	return __pf(*this);
+	movq	%rbx, %rdi	# tmp177,
+	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
+# team_cpp/main.cpp:340:         close(fd);
+	movl	%r13d, %edi	# _34,
 	call	close@PLT	#
-# team_cpp/main.cpp:250:         return 1;
-	jmp	.L74	#
-.L100:
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	leaq	_ZSt4cerr(%rip), %rbx	#, tmp154
-	movl	$19, %edx	#,
-	leaq	.LC3(%rip), %rsi	#, tmp153
-	movq	%rbx, %rdi	# tmp154,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	movq	%rbx, %rdi	# tmp154,
-	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-# team_cpp/main.cpp:230:         return 1;
-	jmp	.L74	#
-.L102:
+# team_cpp/main.cpp:341:         return 1;
+	jmp	.L118	#
+.L125:
+# /usr/include/c++/13/bits/stl_algo.h:1864: 	std::__insertion_sort(__first, __last, __comp);
+	movq	%r15, %rsi	# _36,
+	movq	%r14, %rdi	# mapped,
+	call	_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.isra.0	#
+	jmp	.L124	#
+.L138:
+# /usr/include/c++/13/bits/stl_algo.h:1799:       while (__comp(__val, __next))
+	movq	%r13, %rsi	# __i, __last
+	jmp	.L127	#
+.L156:
 	vzeroupper
-	jmp	.L79	#
-.L87:
-# team_cpp/main.cpp:265:     uint64_t sum = 0;
-	xorl	%ebx, %ebx	# stmp_sum_53.191
-	jmp	.L79	#
-.L88:
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	movq	%rcx, %rax	# top_half_start, tmp.184
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	vpxor	%xmm2, %xmm2, %xmm2	# _84
-	xorl	%esi, %esi	# niters_vector_mult_vf.172
-# team_cpp/main.cpp:265:     uint64_t sum = 0;
-	xorl	%ebx, %ebx	# stmp_sum_53.191
-	jmp	.L80	#
-.L99:
-# team_cpp/main.cpp:275: }
+	jmp	.L130	#
+.L139:
+# team_cpp/main.cpp:356:     uint64_t sum = 0;
+	xorl	%r13d, %r13d	# stmp_sum_54.249
+	jmp	.L130	#
+.L140:
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
+	movq	%rsi, %rax	# top_half_start, tmp.242
+# team_cpp/main.cpp:357:     for (size_t i = top_half_start; i < num_integers; ++i) {
+	vpxor	%xmm2, %xmm2, %xmm2	# _117
+	xorl	%ecx, %ecx	# niters_vector_mult_vf.230
+# team_cpp/main.cpp:356:     uint64_t sum = 0;
+	xorl	%r13d, %r13d	# stmp_sum_54.249
+	jmp	.L131	#
+.L153:
+# team_cpp/main.cpp:366: }
 	call	__stack_chk_fail@PLT	#
 	.cfi_endproc
-.LFE9139:
+.LFE9138:
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits

@@ -1,818 +1,1885 @@
-=== ASSEMBLY FORENSICS: Team SpeedDemon ===
-Performance Gap: 2.6743 ms
-Target to Beat: 22.3660 ms
+=== ASSEMBLY FORENSICS: Team Rustacean ===
+Performance Gap: 0.9115 ms
+Target to Beat: 23.2685 ms
 
-	.file	"main.cpp"
-# GNU C++17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (x86_64-linux-gnu)
-#	compiled by GNU C version 13.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
-
-# GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-# options passed: -march=icelake-server -mmmx -mpopcnt -msse -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -mavx -mavx2 -mno-sse4a -mno-fma4 -mno-xop -mfma -mavx512f -mbmi -mbmi2 -maes -mpclmul -mavx512vl -mavx512bw -mavx512dq -mavx512cd -mno-avx512er -mno-avx512pf -mavx512vbmi -mavx512ifma -mno-avx5124vnniw -mno-avx5124fmaps -mavx512vpopcntdq -mavx512vbmi2 -mgfni -mvpclmulqdq -mavx512vnni -mavx512bitalg -mno-avx512bf16 -mno-avx512vp2intersect -mno-3dnow -madx -mabm -mno-cldemote -mclflushopt -mclwb -mno-clzero -mcx16 -mno-enqcmd -mf16c -mfsgsbase -mfxsr -mhle -msahf -mno-lwp -mlzcnt -mmovbe -mno-movdir64b -mno-movdiri -mno-mwaitx -mno-pconfig -mno-pku -mno-prefetchwt1 -mprfchw -mno-ptwrite -mrdpid -mrdrnd -mrdseed -mrtm -mno-serialize -mno-sgx -msha -mno-shstk -mno-tbm -mno-tsxldtrk -mvaes -mno-waitpkg -mno-wbnoinvd -mxsave -mxsavec -mxsaveopt -mxsaves -mno-amx-tile -mno-amx-int8 -mno-amx-bf16 -mno-uintr -mno-hreset -mno-kl -mno-widekl -mno-avxvnni -mno-avx512fp16 -mno-avxifma -mno-avxvnniint8 -mno-avxneconvert -mno-cmpccxadd -mno-amx-fp16 -mno-prefetchi -mno-raoint -mno-amx-complex --param=l1-cache-size=48 --param=l1-cache-line-size=64 --param=l2-cache-size=55296 -mtune=icelake-server -O3 -fasynchronous-unwind-tables -fstack-protector-strong -fstack-clash-protection -fcf-protection
-	.text
-#APP
-	.globl _ZSt21ios_base_library_initv
-#NO_APP
-	.p2align 4
-	.type	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0, @function
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0:
-.LFB9655:
+	.file	"team_rust.735adabe4cc4546f-cgu.0"
+	.section	.text._ZN3std2rt10lang_start17hbc9283371388ad42E,"ax",@progbits
+	.hidden	_ZN3std2rt10lang_start17hbc9283371388ad42E
+	.globl	_ZN3std2rt10lang_start17hbc9283371388ad42E
+	.p2align	4
+	.type	_ZN3std2rt10lang_start17hbc9283371388ad42E,@function
+_ZN3std2rt10lang_start17hbc9283371388ad42E:
 	.cfi_startproc
-	pushq	%rbp	#
+	pushq	%rax
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushq	%rbx	#
-	.cfi_def_cfa_offset 24
-	.cfi_offset 3, -24
-	subq	$8, %rsp	#,
-	.cfi_def_cfa_offset 32
-# /usr/include/c++/13/ostream:736:     { return flush(__os.put(__os.widen('\n'))); }
-	movq	(%rdi), %rax	# __os_1(D)->_vptr.basic_ostream, __os_1(D)->_vptr.basic_ostream
-	movq	-24(%rax), %rax	# MEM[(long int *)_2 + -24B], MEM[(long int *)_2 + -24B]
-	movq	240(%rdi,%rax), %rbp	# MEM[(const struct __ctype_type * *)_5 + 240B], _14
-# /usr/include/c++/13/bits/basic_ios.h:49:       if (!__f)
-	testq	%rbp, %rbp	# _14
-	je	.L7	#,
-# /usr/include/c++/13/bits/locale_facets.h:882: 	if (_M_widen_ok)
-	cmpb	$0, 56(%rbp)	#, MEM[(const struct ctype *)_14]._M_widen_ok
-	movq	%rdi, %rbx	# tmp99, __os
-	je	.L3	#,
-# /usr/include/c++/13/bits/locale_facets.h:883: 	  return _M_widen[static_cast<unsigned char>(__c)];
-	movsbl	67(%rbp), %esi	# MEM[(const struct ctype *)_14]._M_widen[10],
-.L4:
-# /usr/include/c++/13/ostream:736:     { return flush(__os.put(__os.widen('\n'))); }
-	movq	%rbx, %rdi	# __os,
-	call	_ZNSo3putEc@PLT	#
-# /usr/include/c++/13/ostream:736:     { return flush(__os.put(__os.widen('\n'))); }
-	addq	$8, %rsp	#,
-	.cfi_remember_state
-	.cfi_def_cfa_offset 24
-	popq	%rbx	#
-	.cfi_def_cfa_offset 16
-# /usr/include/c++/13/ostream:736:     { return flush(__os.put(__os.widen('\n'))); }
-	movq	%rax, %rdi	# tmp101, _8
-# /usr/include/c++/13/ostream:736:     { return flush(__os.put(__os.widen('\n'))); }
-	popq	%rbp	#
+	movl	%ecx, %r8d
+	movq	%rdx, %rcx
+	movq	%rsi, %rdx
+	movq	%rdi, (%rsp)
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.0(%rip), %rsi
+	movq	%rsp, %rdi
+	callq	*_ZN3std2rt19lang_start_internal17h6ba36b077a531782E@GOTPCREL(%rip)
+	popq	%rcx
 	.cfi_def_cfa_offset 8
-# /usr/include/c++/13/ostream:758:     { return __os.flush(); }
-	jmp	_ZNSo5flushEv@PLT	#
-.L3:
-	.cfi_restore_state
-# /usr/include/c++/13/bits/locale_facets.h:884: 	this->_M_widen_init();
-	movq	%rbp, %rdi	# _14,
-	call	_ZNKSt5ctypeIcE13_M_widen_initEv@PLT	#
-# /usr/include/c++/13/bits/locale_facets.h:885: 	return this->do_widen(__c);
-	movq	0(%rbp), %rax	# MEM[(const struct ctype *)_14].D.45915._vptr.facet, MEM[(const struct ctype *)_14].D.45915._vptr.facet
-	movl	$10, %esi	#,
-	movq	%rbp, %rdi	# _14,
-	call	*48(%rax)	# MEM[(int (*) () *)_24 + 48B]
-	movsbl	%al, %esi	# tmp100,
-	jmp	.L4	#
-.L7:
-# /usr/include/c++/13/bits/basic_ios.h:50: 	__throw_bad_cast();
-	call	_ZSt16__throw_bad_castv@PLT	#
+	retq
+.Lfunc_end0:
+	.size	_ZN3std2rt10lang_start17hbc9283371388ad42E, .Lfunc_end0-_ZN3std2rt10lang_start17hbc9283371388ad42E
 	.cfi_endproc
-.LFE9655:
-	.size	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0, .-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0
-	.section	.text.unlikely,"ax",@progbits
-.LCOLDB0:
-	.text
-.LHOTB0:
-	.p2align 4
-	.globl	_Z10radix_sortPjm
-	.type	_Z10radix_sortPjm, @function
-_Z10radix_sortPjm:
-.LFB9138:
+
+	.section	".text._ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E","ax",@progbits
+	.p2align	4
+	.type	_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E,@function
+_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E:
+.Lfunc_begin0:
 	.cfi_startproc
-	endbr64	
-	pushq	%rbp	#
+	.cfi_personality 155, DW.ref.rust_eh_personality
+	.cfi_lsda 27, .Lexception0
+	pushq	%r15
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp	#,
-	.cfi_def_cfa_register 6
-	pushq	%r15	#
-	pushq	%r14	#
-	pushq	%r13	#
-	pushq	%r12	#
-	pushq	%rbx	#
-	andq	$-64, %rsp	#,
-	subq	$2176, %rsp	#,
-	.cfi_offset 15, -24
-	.cfi_offset 14, -32
-	.cfi_offset 13, -40
-	.cfi_offset 12, -48
-	.cfi_offset 3, -56
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	movq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp307
-	movq	%rax, 2168(%rsp)	# tmp307, D.101336
-	movabsq	$2305843009213693950, %rax	#, tmp307
-	cmpq	%rsi, %rax	# n, tmp199
-	jb	.L9	#,
-	movq	%rdi, %r15	# tmp304, arr
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	leaq	0(,%rsi,4), %rdi	#, tmp200
-	movq	%rsi, %r13	# tmp305, n
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	call	_Znam@PLT	#
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	leaq	64(%rsp), %rdi	#, tmp302
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	movq	%rax, %r14	# tmp306, _7
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	call	memset@PLT	#
-	movq	%rax, %rdi	#, tmp302
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	testq	%r13, %r13	# n
-	je	.L10	#,
-	movq	%r15, %r8	# arr, ivtmp.165
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%esi, %esi	# _107
-	.p2align 4,,10
-	.p2align 3
-.L13:
-	movq	%rsi, %rdx	# _107, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %rsi	#, _107
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%rsi, %r13	# _107, n
-	movq	%rsi, %rax	# _107, _156
-	cmovbe	%r13, %rax	# n,, _156
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _156, block_start
-	jnb	.L11	#,
-	leaq	(%r15,%rax,4), %rcx	#, _312
-	movq	%r8, %rax	# ivtmp.165, ivtmp.160
-	.p2align 4,,10
-	.p2align 3
-.L12:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	(%rax), %edx	# MEM[(uint32_t *)_315], _114
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.160
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_114]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rcx	# ivtmp.160, _312
-	jne	.L12	#,
-.L11:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r8	#, ivtmp.165
-	cmpq	%r13, %rsi	# n, _107
-	jb	.L13	#,
-.L10:
-	leaq	72(%rsp), %rax	#, ivtmp.69
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.52
-	leaq	2112(%rsp), %r12	#, _363
-	movq	%rax, 56(%rsp)	# ivtmp.69, %sfp
-	.p2align 4,,10
-	.p2align 3
-.L14:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_324], count_I_lsm0.52
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.153
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.52, MEM[(long unsigned int *)_324]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%rax, %r12	# ivtmp.153, _363
-	jne	.L14	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	leaq	-1(%r13), %rbx	#, i
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L15	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	movq	%rbx, %rdx	# i, i
-	.p2align 4,,10
-	.p2align 3
-.L16:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r15,%rdx,4), %esi	# MEM[(uint32_t *)arr_8(D) + i_224 * 4], _128
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movzbl	%sil, %r8d	# _128, _130
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%r8,8), %rax	# MEM[(long unsigned int[256] *)_415][_130], tmp313
-	decq	%rax	# _132
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%r8,8)	# _132, MEM[(long unsigned int[256] *)_415][_130]
-	movl	%esi, (%r14,%rax,4)	# _128, *_134
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rdx	#, i
-	jnb	.L16	#,
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%r14, %r9	# _7, ivtmp.137
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%r8d, %r8d	# _75
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movq	%rax, %rdi	#, tmp302
-	.p2align 4,,10
-	.p2align 3
-.L21:
-	movq	%r8, %rdx	# _75, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %r8	#, _75
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%r8, %r13	# _75, n
-	movq	%r8, %rax	# _75, _167
-	cmovbe	%r13, %rax	# n,, _167
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _167, block_start
-	jnb	.L19	#,
-	leaq	(%r14,%rax,4), %rsi	#, _333
-	movq	%r9, %rax	# ivtmp.137, ivtmp.132
-	.p2align 4,,10
-	.p2align 3
-.L20:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	1(%rax), %edx	# MEM[(uint32_t *)_336], _83
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.132
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_83]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rsi	# ivtmp.132, _333
-	jne	.L20	#,
-.L19:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r9	#, ivtmp.137
-	cmpq	%r13, %r8	# n, _75
-	jb	.L21	#,
-.L18:
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.51
-	movq	56(%rsp), %rax	# %sfp, ivtmp.125
-	.p2align 4,,10
-	.p2align 3
-.L22:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_345], count_I_lsm0.51
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.125
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.51, MEM[(long unsigned int *)_345]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%rax, %r12	# ivtmp.125, _363
-	jne	.L22	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L23	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	movq	%rbx, %rdx	# i, i
-	.p2align 4,,10
-	.p2align 3
-.L24:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r14,%rdx,4), %ecx	# MEM[(uint32_t *)_7 + i_220 * 4], _97
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movzbl	%ch, %esi	# _97, _100
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%rsi,8), %rax	# MEM[(long unsigned int[256] *)_415][_100], tmp315
-	decq	%rax	# _102
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%rsi,8)	# _102, MEM[(long unsigned int[256] *)_415][_100]
-	movl	%ecx, (%r15,%rax,4)	# _97, *_104
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rdx	#, i
-	jnb	.L24	#,
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%r15, %r9	# arr, ivtmp.109
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%r8d, %r8d	# _43
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movq	%rax, %rdi	#, tmp302
-	.p2align 4,,10
-	.p2align 3
-.L29:
-	movq	%r8, %rdx	# _43, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %r8	#, _43
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%r8, %r13	# _43, n
-	movq	%r8, %rax	# _43, _178
-	cmovbe	%r13, %rax	# n,, _178
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _178, block_start
-	jnb	.L27	#,
-	leaq	(%r15,%rax,4), %rsi	#, _354
-	movq	%r9, %rax	# ivtmp.109, ivtmp.104
-	.p2align 4,,10
-	.p2align 3
-.L28:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	2(%rax), %edx	# MEM[(uint32_t *)_401], _51
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.104
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_51]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rsi	# ivtmp.104, _354
-	jne	.L28	#,
-.L27:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r9	#, ivtmp.109
-	cmpq	%r13, %r8	# n, _43
-	jb	.L29	#,
-.L26:
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.50
-	movq	56(%rsp), %rax	# %sfp, ivtmp.97
-	.p2align 4,,10
-	.p2align 3
-.L30:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_392], count_I_lsm0.50
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.97
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.50, MEM[(long unsigned int *)_392]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%r12, %rax	# _363, ivtmp.97
-	jne	.L30	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L31	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	movq	%rbx, %rsi	# i, i
-	.p2align 4,,10
-	.p2align 3
-.L32:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r15,%rsi,4), %r8d	# MEM[(uint32_t *)arr_8(D) + i_216 * 4], _65
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	%r8d, %edx	# _65, tmp270
-	shrl	$16, %edx	#, tmp270
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movzbl	%dl, %edx	# tmp270, _68
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%rdx,8), %rax	# MEM[(long unsigned int[256] *)_415][_68], tmp318
-	decq	%rax	# _70
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%rdx,8)	# _70, MEM[(long unsigned int[256] *)_415][_68]
-	movl	%r8d, (%r14,%rax,4)	# _65, *_72
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rsi	#, i
-	jnb	.L32	#,
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%r14, %r8	# _7, ivtmp.81
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	xorl	%edi, %edi	# _12
-	.p2align 4,,10
-	.p2align 3
-.L37:
-	movq	%rdi, %rdx	# _12, block_start
-# team_cpp/main.cpp:134:         size_t block_end = std::min(block_start + BLOCK_SIZE, n);
-	addq	$8192, %rdi	#, _12
-# /usr/include/c++/13/bits/stl_algobase.h:238:       if (__b < __a)
-	cmpq	%rdi, %r13	# _12, n
-	movq	%rdi, %rax	# _12, _189
-	cmovbe	%r13, %rax	# n,, _189
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rax, %rdx	# _189, block_start
-	jnb	.L35	#,
-	leaq	(%r14,%rax,4), %rsi	#, _372
-	movq	%r8, %rax	# ivtmp.81, ivtmp.76
-	.p2align 4,,10
-	.p2align 3
-.L36:
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	movzbl	3(%rax), %edx	# MEM[(uint32_t *)_369], _19
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	addq	$4, %rax	#, ivtmp.76
-# team_cpp/main.cpp:138:             ++count[(src[i] >> shift) & 0xFF];
-	incq	64(%rsp,%rdx,8)	# MEM[(long unsigned int[256] *)_415][_19]
-# team_cpp/main.cpp:137:         for (size_t i = block_start; i < block_end; ++i) {
-	cmpq	%rsi, %rax	# _372, ivtmp.76
-	jne	.L36	#,
-.L35:
-# team_cpp/main.cpp:133:     for (size_t block_start = 0; block_start < n; block_start += BLOCK_SIZE) {
-	addq	$32768, %r8	#, ivtmp.81
-	cmpq	%r13, %rdi	# n, _12
-	jb	.L37	#,
-.L34:
-	movq	64(%rsp), %rdx	# MEM[(long unsigned int *)_415], count_I_lsm0.49
-	movq	56(%rsp), %rax	# %sfp, ivtmp.69
-	.p2align 4,,10
-	.p2align 3
-.L38:
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	addq	(%rax), %rdx	# MEM[(long unsigned int *)_360], count_I_lsm0.49
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	addq	$8, %rax	#, ivtmp.69
-# team_cpp/main.cpp:144:         count[i] += count[i - 1];
-	movq	%rdx, -8(%rax)	# count_I_lsm0.49, MEM[(long unsigned int *)_360]
-# team_cpp/main.cpp:143:     for (size_t i = 1; i < 256; ++i) {
-	cmpq	%r12, %rax	# _363, ivtmp.69
-	jne	.L38	#,
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	testq	%r13, %r13	# n
-	je	.L39	#,
-	.p2align 4,,10
-	.p2align 3
-.L40:
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	(%r14,%rbx,4), %esi	# MEM[(uint32_t *)_7 + i_108 * 4], _33
-# team_cpp/main.cpp:149:         uint8_t byte = (src[i] >> shift) & 0xFF;
-	movl	%esi, %edx	# _33, _35
-	shrl	$24, %edx	#,
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	64(%rsp,%rdx,8), %rax	# MEM[(long unsigned int[256] *)_415][_35], tmp321
-	decq	%rax	# _37
-# team_cpp/main.cpp:150:         dst[--count[byte]] = src[i];
-	movq	%rax, 64(%rsp,%rdx,8)	# _37, MEM[(long unsigned int[256] *)_415][_35]
-	movl	%esi, (%r15,%rax,4)	# _33, *_39
-# team_cpp/main.cpp:148:     for (size_t i = n; i-- > 0; ) {
-	subq	$1, %rbx	#, i
-	jnb	.L40	#,
-.L39:
-# team_cpp/main.cpp:160:     delete[] temp;
-	movq	2168(%rsp), %rax	# D.101336, tmp308
-	subq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp308
-	jne	.L70	#,
-# team_cpp/main.cpp:161: }
-	leaq	-40(%rbp), %rsp	#,
-# team_cpp/main.cpp:160:     delete[] temp;
-	movq	%r14, %rdi	# _7,
-# team_cpp/main.cpp:161: }
-	popq	%rbx	#
-	popq	%r12	#
-	popq	%r13	#
-	popq	%r14	#
-	popq	%r15	#
-	popq	%rbp	#
-	.cfi_remember_state
-	.cfi_def_cfa 7, 8
-# team_cpp/main.cpp:160:     delete[] temp;
-	jmp	_ZdaPv@PLT	#
-.L15:
-	.cfi_restore_state
-# team_cpp/main.cpp:130:     alignas(64) size_t count[256] = {0};
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%rax, %rdi	#, tmp302
-	jmp	.L18	#
-.L23:
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	movq	%rax, %rdi	#, tmp302
-	jmp	.L26	#
-.L31:
-	movl	$2048, %edx	#,
-	xorl	%esi, %esi	#
-	call	memset@PLT	#
-	jmp	.L34	#
-.L70:
-# team_cpp/main.cpp:160:     delete[] temp;
-	call	__stack_chk_fail@PLT	#
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	subq	$72, %rsp
+	.cfi_def_cfa_offset 112
+	.cfi_offset %rbx, -40
+	.cfi_offset %r12, -32
+	.cfi_offset %r14, -24
+	.cfi_offset %r15, -16
+	movq	(%rdi), %rdi
+	callq	_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h68bf0561659afb3eE
+	testq	%rax, %rax
+	je	.LBB1_1
+	movq	%rax, (%rsp)
+	movq	%rsp, %rax
+	movq	%rax, 8(%rsp)
+	movq	_ZN58_$LT$std..io..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h62ceb23194058131E@GOTPCREL(%rip), %rax
+	movq	%rax, 16(%rsp)
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.7(%rip), %rax
+	movq	%rax, 24(%rsp)
+	movq	$2, 32(%rsp)
+	movq	$0, 56(%rsp)
+	leaq	8(%rsp), %rax
+	movq	%rax, 40(%rsp)
+	movq	$1, 48(%rsp)
+.Ltmp0:
+	leaq	24(%rsp), %rdi
+	callq	*_ZN3std2io5stdio23attempt_print_to_stderr17h8a28c0d4c444e62fE@GOTPCREL(%rip)
+.Ltmp1:
+	movq	(%rsp), %rax
+	movl	%eax, %ecx
+	andl	$3, %ecx
+	cmpl	$1, %ecx
+	jne	.LBB1_10
+	leaq	-1(%rax), %rbx
+	movq	-1(%rax), %r15
+	movq	7(%rax), %r12
+	movq	(%r12), %rax
+	testq	%rax, %rax
+	je	.LBB1_7
+.Ltmp6:
+	movq	%r15, %rdi
+	callq	*%rax
+.Ltmp7:
+.LBB1_7:
+	movq	8(%r12), %rsi
+	testq	%rsi, %rsi
+	je	.LBB1_9
+	movq	16(%r12), %rdx
+	movq	%r15, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB1_9:
+	movl	$24, %esi
+	movl	$8, %edx
+	movq	%rbx, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB1_10:
+	movl	$1, %eax
+	jmp	.LBB1_11
+.LBB1_1:
+	xorl	%eax, %eax
+.LBB1_11:
+	addq	$72, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	retq
+.LBB1_12:
+	.cfi_def_cfa_offset 112
+.Ltmp8:
+	movq	%rax, %r14
+	movq	8(%r12), %rsi
+	testq	%rsi, %rsi
+	je	.LBB1_14
+	movq	16(%r12), %rdx
+	movq	%r15, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB1_14:
+	movl	$24, %esi
+	movl	$8, %edx
+	movq	%rbx, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	movq	%r14, %rdi
+	callq	_Unwind_Resume@PLT
+.LBB1_2:
+.Ltmp2:
+	movq	%rax, %r14
+	movq	(%rsp), %rdi
+.Ltmp3:
+	callq	_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE
+.Ltmp4:
+	movq	%r14, %rdi
+	callq	_Unwind_Resume@PLT
+.LBB1_16:
+.Ltmp5:
+	callq	*_ZN4core9panicking16panic_in_cleanup17h5eff40bcc4481d72E@GOTPCREL(%rip)
+.Lfunc_end1:
+	.size	_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E, .Lfunc_end1-_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E
 	.cfi_endproc
-	.section	.text.unlikely
+	.section	".gcc_except_table._ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E","a",@progbits
+	.p2align	2, 0x0
+GCC_except_table1:
+.Lexception0:
+	.byte	255
+	.byte	155
+	.uleb128 .Lttbase0-.Lttbaseref0
+.Lttbaseref0:
+	.byte	1
+	.uleb128 .Lcst_end0-.Lcst_begin0
+.Lcst_begin0:
+	.uleb128 .Lfunc_begin0-.Lfunc_begin0
+	.uleb128 .Ltmp0-.Lfunc_begin0
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp0-.Lfunc_begin0
+	.uleb128 .Ltmp1-.Ltmp0
+	.uleb128 .Ltmp2-.Lfunc_begin0
+	.byte	0
+	.uleb128 .Ltmp6-.Lfunc_begin0
+	.uleb128 .Ltmp7-.Ltmp6
+	.uleb128 .Ltmp8-.Lfunc_begin0
+	.byte	0
+	.uleb128 .Ltmp7-.Lfunc_begin0
+	.uleb128 .Ltmp3-.Ltmp7
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp3-.Lfunc_begin0
+	.uleb128 .Ltmp4-.Ltmp3
+	.uleb128 .Ltmp5-.Lfunc_begin0
+	.byte	1
+	.uleb128 .Ltmp4-.Lfunc_begin0
+	.uleb128 .Lfunc_end1-.Ltmp4
+	.byte	0
+	.byte	0
+.Lcst_end0:
+	.byte	127
+	.byte	0
+	.p2align	2, 0x0
+.Lttbase0:
+	.byte	0
+	.p2align	2, 0x0
+
+	.section	.text._ZN3std3sys9backtrace28__rust_begin_short_backtrace17h68bf0561659afb3eE,"ax",@progbits
+	.p2align	4
+	.type	_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h68bf0561659afb3eE,@function
+_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h68bf0561659afb3eE:
 	.cfi_startproc
-	.type	_Z10radix_sortPjm.cold, @function
-_Z10radix_sortPjm.cold:
-.LFSB9138:
-.L9:
-	.cfi_def_cfa 6, 16
-	.cfi_offset 3, -56
-	.cfi_offset 6, -16
-	.cfi_offset 12, -48
-	.cfi_offset 13, -40
-	.cfi_offset 14, -32
-	.cfi_offset 15, -24
-# team_cpp/main.cpp:155:     uint32_t* temp = new uint32_t[n];
-	movq	2168(%rsp), %rax	# D.101336, tmp309
-	subq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp309
-	jne	.L71	#,
-	call	__cxa_throw_bad_array_new_length@PLT	#
-.L71:
-	call	__stack_chk_fail@PLT	#
+	pushq	%rax
+	.cfi_def_cfa_offset 16
+	callq	*%rdi
+	#APP
+	#NO_APP
+	popq	%rcx
+	.cfi_def_cfa_offset 8
+	retq
+.Lfunc_end2:
+	.size	_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h68bf0561659afb3eE, .Lfunc_end2-_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h68bf0561659afb3eE
 	.cfi_endproc
-.LFE9138:
-	.text
-	.size	_Z10radix_sortPjm, .-_Z10radix_sortPjm
-	.section	.text.unlikely
-	.size	_Z10radix_sortPjm.cold, .-_Z10radix_sortPjm.cold
-.LCOLDE0:
-	.text
-.LHOTE0:
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.LC1:
-	.string	"Usage: "
-.LC2:
-	.string	" <input_file>"
-.LC3:
-	.string	"Failed to open file"
-.LC4:
-	.string	"Failed to get file size"
-.LC5:
-	.string	"Failed to mmap file"
-.LC6:
-	.string	"Sum of top 50%: "
-	.section	.text.startup,"ax",@progbits
-	.p2align 4
+
+	.section	".text._ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcaafc0d95b4eb0d5E","ax",@progbits
+	.p2align	4
+	.type	_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcaafc0d95b4eb0d5E,@function
+_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcaafc0d95b4eb0d5E:
+	.cfi_startproc
+	pushq	%rax
+	.cfi_def_cfa_offset 16
+	movq	(%rdi), %rax
+	movq	%rax, (%rsp)
+	movq	%rsp, %rdi
+	callq	_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E
+	popq	%rcx
+	.cfi_def_cfa_offset 8
+	retq
+.Lfunc_end3:
+	.size	_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcaafc0d95b4eb0d5E, .Lfunc_end3-_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcaafc0d95b4eb0d5E
+	.cfi_endproc
+
+	.section	".text._ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h2e657b3052a94fe9E","ax",@progbits
+	.p2align	4
+	.type	_ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h2e657b3052a94fe9E,@function
+_ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h2e657b3052a94fe9E:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	pushq	%rax
+	.cfi_def_cfa_offset 48
+	.cfi_offset %rbx, -40
+	.cfi_offset %r12, -32
+	.cfi_offset %r14, -24
+	.cfi_offset %r15, -16
+	movq	%rdi, %rbx
+	movq	8(%rdi), %r15
+	movq	24(%rdi), %rcx
+	movq	%rcx, %rax
+	subq	%r15, %rax
+	movabsq	$-6148914691236517205, %rdx
+	mulq	%rdx
+	cmpq	%r15, %rcx
+	je	.LBB4_5
+	movq	%rdx, %r14
+	shrq	$4, %r14
+	addq	$8, %r15
+	movq	_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip), %r12
+	jmp	.LBB4_2
+	.p2align	4
+.LBB4_4:
+	addq	$24, %r15
+	decq	%r14
+	je	.LBB4_5
+.LBB4_2:
+	movq	-8(%r15), %rsi
+	testq	%rsi, %rsi
+	je	.LBB4_4
+	movq	(%r15), %rdi
+	movl	$1, %edx
+	callq	*%r12
+	jmp	.LBB4_4
+.LBB4_5:
+	movq	16(%rbx), %rax
+	testq	%rax, %rax
+	je	.LBB4_6
+	movq	(%rbx), %rdi
+	shlq	$3, %rax
+	leaq	(%rax,%rax,2), %rsi
+	movl	$8, %edx
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	jmpq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB4_6:
+	.cfi_def_cfa_offset 48
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	retq
+.Lfunc_end4:
+	.size	_ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h2e657b3052a94fe9E, .Lfunc_end4-_ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h2e657b3052a94fe9E
+	.cfi_endproc
+
+	.section	".text._ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE","ax",@progbits
+	.p2align	4
+	.type	_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE,@function
+_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE:
+.Lfunc_begin1:
+	.cfi_startproc
+	.cfi_personality 155, DW.ref.rust_eh_personality
+	.cfi_lsda 27, .Lexception1
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	pushq	%rax
+	.cfi_def_cfa_offset 48
+	.cfi_offset %rbx, -40
+	.cfi_offset %r12, -32
+	.cfi_offset %r14, -24
+	.cfi_offset %r15, -16
+	movl	%edi, %eax
+	andl	$3, %eax
+	cmpl	$1, %eax
+	je	.LBB5_1
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	retq
+.LBB5_1:
+	.cfi_def_cfa_offset 48
+	leaq	-1(%rdi), %rbx
+	movq	-1(%rdi), %r14
+	movq	7(%rdi), %r12
+	movq	(%r12), %rax
+	testq	%rax, %rax
+	je	.LBB5_3
+.Ltmp9:
+	movq	%r14, %rdi
+	callq	*%rax
+.Ltmp10:
+.LBB5_3:
+	movq	8(%r12), %rsi
+	testq	%rsi, %rsi
+	je	.LBB5_5
+	movq	16(%r12), %rdx
+	movq	%r14, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB5_5:
+	movl	$24, %esi
+	movl	$8, %edx
+	movq	%rbx, %rdi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	jmpq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB5_6:
+	.cfi_def_cfa_offset 48
+.Ltmp11:
+	movq	%rax, %r15
+	movq	8(%r12), %rsi
+	testq	%rsi, %rsi
+	je	.LBB5_8
+	movq	16(%r12), %rdx
+	movq	%r14, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB5_8:
+	movl	$24, %esi
+	movl	$8, %edx
+	movq	%rbx, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	movq	%r15, %rdi
+	callq	_Unwind_Resume@PLT
+.Lfunc_end5:
+	.size	_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE, .Lfunc_end5-_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE
+	.cfi_endproc
+	.section	".gcc_except_table._ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha0610c94b0b9687bE","a",@progbits
+	.p2align	2, 0x0
+GCC_except_table5:
+.Lexception1:
+	.byte	255
+	.byte	255
+	.byte	1
+	.uleb128 .Lcst_end1-.Lcst_begin1
+.Lcst_begin1:
+	.uleb128 .Ltmp9-.Lfunc_begin1
+	.uleb128 .Ltmp10-.Ltmp9
+	.uleb128 .Ltmp11-.Lfunc_begin1
+	.byte	0
+	.uleb128 .Ltmp10-.Lfunc_begin1
+	.uleb128 .Lfunc_end5-.Ltmp10
+	.byte	0
+	.byte	0
+.Lcst_end1:
+	.p2align	2, 0x0
+
+	.section	".text._ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE","ax",@progbits
+	.p2align	4
+	.type	_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE,@function
+_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset %rbx, -48
+	.cfi_offset %r12, -40
+	.cfi_offset %r13, -32
+	.cfi_offset %r14, -24
+	.cfi_offset %r15, -16
+	movq	%rdi, %r14
+	movq	8(%rdi), %rbx
+	movq	16(%rdi), %r15
+	testq	%r15, %r15
+	je	.LBB6_5
+	leaq	8(%rbx), %r12
+	movq	_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip), %r13
+	jmp	.LBB6_2
+	.p2align	4
+.LBB6_4:
+	addq	$24, %r12
+	decq	%r15
+	je	.LBB6_5
+.LBB6_2:
+	movq	-8(%r12), %rsi
+	testq	%rsi, %rsi
+	je	.LBB6_4
+	movq	(%r12), %rdi
+	movl	$1, %edx
+	callq	*%r13
+	jmp	.LBB6_4
+.LBB6_5:
+	movq	(%r14), %rax
+	testq	%rax, %rax
+	je	.LBB6_6
+	shlq	$3, %rax
+	leaq	(%rax,%rax,2), %rsi
+	movl	$8, %edx
+	movq	%rbx, %rdi
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	jmpq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB6_6:
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	retq
+.Lfunc_end6:
+	.size	_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE, .Lfunc_end6-_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE
+	.cfi_endproc
+
+	.section	.text.unlikely._ZN5alloc7raw_vec11finish_grow17he5e8c6afefc7edfbE,"ax",@progbits
+	.p2align	4
+	.type	_ZN5alloc7raw_vec11finish_grow17he5e8c6afefc7edfbE,@function
+_ZN5alloc7raw_vec11finish_grow17he5e8c6afefc7edfbE:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset %rbx, -32
+	.cfi_offset %r14, -24
+	.cfi_offset %r15, -16
+	movq	%rdx, %rbx
+	movq	%rsi, %r15
+	movq	%rdi, %r14
+	cmpq	$0, 8(%rcx)
+	je	.LBB7_3
+	movq	16(%rcx), %rsi
+	testq	%rsi, %rsi
+	je	.LBB7_3
+	movq	(%rcx), %rdi
+	movq	%r15, %rdx
+	movq	%rbx, %rcx
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_realloc@GOTPCREL(%rip)
+	jmp	.LBB7_7
+.LBB7_3:
+	testq	%rbx, %rbx
+	je	.LBB7_4
+	callq	*_RNvCskdKJRKLKjqM_7___rustc35___rust_no_alloc_shim_is_unstable_v2@GOTPCREL(%rip)
+	movq	%rbx, %rdi
+	movq	%r15, %rsi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc12___rust_alloc@GOTPCREL(%rip)
+.LBB7_7:
+	xorl	%ecx, %ecx
+	testq	%rax, %rax
+	sete	%cl
+	cmovneq	%rax, %r15
+	jmp	.LBB7_8
+.LBB7_4:
+	xorl	%ecx, %ecx
+.LBB7_8:
+	movq	%r15, 8(%r14)
+	movq	%rbx, 16(%r14)
+	movq	%rcx, (%r14)
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	retq
+.Lfunc_end7:
+	.size	_ZN5alloc7raw_vec11finish_grow17he5e8c6afefc7edfbE, .Lfunc_end7-_ZN5alloc7raw_vec11finish_grow17he5e8c6afefc7edfbE
+	.cfi_endproc
+
+	.section	".text.unlikely._ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h6f29d9143fe3728dE","ax",@progbits
+	.p2align	4
+	.type	_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h6f29d9143fe3728dE,@function
+_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h6f29d9143fe3728dE:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 80
+	.cfi_offset %rbx, -24
+	.cfi_offset %r14, -16
+	addq	%rdx, %rsi
+	jb	.LBB8_1
+	movq	%rdi, %rbx
+	movq	(%rdi), %rdi
+	leaq	(%rdi,%rdi), %rax
+	cmpq	%rax, %rsi
+	cmovaq	%rsi, %rax
+	cmpq	$5, %rax
+	movl	$4, %r14d
+	cmovaeq	%rax, %r14
+	leaq	(%rcx,%r8), %rdx
+	decq	%rdx
+	movq	%rcx, %rax
+	negq	%rax
+	andq	%rdx, %rax
+	mulq	%r14
+	seto	%dl
+	movabsq	$-9223372036854775808, %rsi
+	subq	%rcx, %rsi
+	cmpq	%rsi, %rax
+	seta	%sil
+	orb	%dl, %sil
+	je	.LBB8_3
+.LBB8_1:
+	xorl	%edi, %edi
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.4(%rip), %rdx
+	callq	*_ZN5alloc7raw_vec12handle_error17h5794e6eba25188a7E@GOTPCREL(%rip)
+.LBB8_3:
+	testq	%rdi, %rdi
+	jne	.LBB8_5
+	xorl	%edx, %edx
+	jmp	.LBB8_6
+.LBB8_5:
+	movq	8(%rbx), %rdx
+	imulq	%r8, %rdi
+	movq	%rdx, 32(%rsp)
+	movq	%rdi, 48(%rsp)
+	movq	%rcx, %rdx
+.LBB8_6:
+	movq	%rdx, 40(%rsp)
+	leaq	8(%rsp), %rdi
+	leaq	32(%rsp), %r8
+	movq	%rcx, %rsi
+	movq	%rax, %rdx
+	movq	%r8, %rcx
+	callq	_ZN5alloc7raw_vec11finish_grow17he5e8c6afefc7edfbE
+	cmpl	$1, 8(%rsp)
+	je	.LBB8_7
+	movq	16(%rsp), %rax
+	movq	%rax, 8(%rbx)
+	movq	%r14, (%rbx)
+	addq	$56, %rsp
+	.cfi_def_cfa_offset 24
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	retq
+.LBB8_7:
+	.cfi_def_cfa_offset 80
+	movq	16(%rsp), %rdi
+	movq	24(%rsp), %rsi
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.4(%rip), %rdx
+	callq	*_ZN5alloc7raw_vec12handle_error17h5794e6eba25188a7E@GOTPCREL(%rip)
+.Lfunc_end8:
+	.size	_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h6f29d9143fe3728dE, .Lfunc_end8-_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h6f29d9143fe3728dE
+	.cfi_endproc
+
+	.section	".text._ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h86a528f6a97fe10dE","ax",@progbits
+	.p2align	4
+	.type	_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h86a528f6a97fe10dE,@function
+_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h86a528f6a97fe10dE:
+	.cfi_startproc
+	movq	%rsi, %rdx
+	movq	8(%rdi), %rax
+	movq	16(%rdi), %rsi
+	movq	%rax, %rdi
+	jmpq	*_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc26b542d45893745E@GOTPCREL(%rip)
+.Lfunc_end9:
+	.size	_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h86a528f6a97fe10dE, .Lfunc_end9-_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h86a528f6a97fe10dE
+	.cfi_endproc
+
+	.section	.text._ZN9team_rust4main17h402c77bd60994244E,"ax",@progbits
+	.hidden	_ZN9team_rust4main17h402c77bd60994244E
+	.globl	_ZN9team_rust4main17h402c77bd60994244E
+	.p2align	4
+	.type	_ZN9team_rust4main17h402c77bd60994244E,@function
+_ZN9team_rust4main17h402c77bd60994244E:
+.Lfunc_begin2:
+	.cfi_startproc
+	.cfi_personality 155, DW.ref.rust_eh_personality
+	.cfi_lsda 27, .Lexception2
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	pushq	%r15
+	.cfi_def_cfa_offset 24
+	pushq	%r14
+	.cfi_def_cfa_offset 32
+	pushq	%r13
+	.cfi_def_cfa_offset 40
+	pushq	%r12
+	.cfi_def_cfa_offset 48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	subq	$2216, %rsp
+	.cfi_def_cfa_offset 2272
+	.cfi_offset %rbx, -56
+	.cfi_offset %r12, -48
+	.cfi_offset %r13, -40
+	.cfi_offset %r14, -32
+	.cfi_offset %r15, -24
+	.cfi_offset %rbp, -16
+	leaq	128(%rsp), %rdi
+	callq	*_ZN3std3env4args17h11058bd271dd4901E@GOTPCREL(%rip)
+	movdqu	128(%rsp), %xmm0
+	movdqu	144(%rsp), %xmm1
+	movdqa	%xmm1, 32(%rsp)
+	movdqa	%xmm0, 16(%rsp)
+.Ltmp12:
+	leaq	160(%rsp), %rdi
+	leaq	16(%rsp), %rsi
+	callq	*_ZN73_$LT$std..env..Args$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34e8a64848ff4227E@GOTPCREL(%rip)
+.Ltmp13:
+	movq	160(%rsp), %r15
+	movq	%r15, %rax
+	negq	%rax
+	jo	.LBB10_112
+	movabsq	$-9223372036854775808, %rdx
+	movq	168(%rsp), %r12
+	movq	40(%rsp), %rax
+	subq	24(%rsp), %rax
+	movq	%rax, %rcx
+	shrq	$3, %rcx
+	movabsq	$-6148914691236517205, %rsi
+	imulq	%rsi, %rcx
+	cmpq	$4, %rcx
+	movl	$3, %ebp
+	cmovaeq	%rcx, %rbp
+	leaq	8(,%rbp,8), %rcx
+	leaq	(%rcx,%rcx,2), %rbx
+	leaq	-32(%rdx), %rcx
+	cmpq	%rcx, %rax
+	jbe	.LBB10_5
+	xorl	%r14d, %r14d
+.LBB10_4:
+.Ltmp47:
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.2(%rip), %rdx
+	movq	%r14, %rdi
+	movq	%rbx, %rsi
+	callq	*_ZN5alloc7raw_vec12handle_error17h5794e6eba25188a7E@GOTPCREL(%rip)
+.Ltmp48:
+	jmp	.LBB10_123
+.LBB10_5:
+	movq	176(%rsp), %rax
+	testq	%rbx, %rbx
+	je	.LBB10_8
+	movq	%rax, 8(%rsp)
+	callq	*_RNvCskdKJRKLKjqM_7___rustc35___rust_no_alloc_shim_is_unstable_v2@GOTPCREL(%rip)
+	movl	$8, %r14d
+	movl	$8, %esi
+	movq	%rbx, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc12___rust_alloc@GOTPCREL(%rip)
+	testq	%rax, %rax
+	je	.LBB10_4
+	movq	%rax, %r13
+	incq	%rbp
+	movq	8(%rsp), %rax
+	jmp	.LBB10_9
+.LBB10_8:
+	movl	$8, %r13d
+	xorl	%ebp, %ebp
+.LBB10_9:
+	movq	%r15, (%r13)
+	movq	%r12, 8(%r13)
+	movq	%rax, 16(%r13)
+	movq	%rbp, 96(%rsp)
+	movq	%r13, 104(%rsp)
+	movq	$1, 112(%rsp)
+	movaps	16(%rsp), %xmm0
+	movdqa	32(%rsp), %xmm1
+	movdqa	%xmm1, 176(%rsp)
+	movaps	%xmm0, 160(%rsp)
+	movl	$1, %r15d
+	movl	$40, %r12d
+	jmp	.LBB10_12
+	.p2align	4
+.LBB10_10:
+	movq	104(%rsp), %r13
+.LBB10_11:
+	movq	%r14, -16(%r13,%r12)
+	movq	%rbx, -8(%r13,%r12)
+	movq	%rbp, (%r13,%r12)
+	incq	%r15
+	movq	%r15, 112(%rsp)
+	addq	$24, %r12
+.LBB10_12:
+.Ltmp15:
+	leaq	64(%rsp), %rdi
+	leaq	160(%rsp), %rsi
+	callq	*_ZN73_$LT$std..env..Args$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34e8a64848ff4227E@GOTPCREL(%rip)
+.Ltmp16:
+	movq	64(%rsp), %r14
+	movabsq	$-9223372036854775808, %rax
+	cmpq	%rax, %r14
+	je	.LBB10_16
+	movq	72(%rsp), %rbx
+	movq	80(%rsp), %rbp
+	cmpq	96(%rsp), %r15
+	jne	.LBB10_11
+	movq	184(%rsp), %rdx
+	subq	168(%rsp), %rdx
+	shrq	$3, %rdx
+	movabsq	$-6148914691236517205, %rax
+	imulq	%rax, %rdx
+	incq	%rdx
+.Ltmp18:
+	movl	$8, %ecx
+	movl	$24, %r8d
+	leaq	96(%rsp), %rdi
+	movq	%r15, %rsi
+	callq	_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h6f29d9143fe3728dE
+.Ltmp19:
+	jmp	.LBB10_10
+.LBB10_16:
+	movq	168(%rsp), %r14
+	movq	184(%rsp), %rcx
+	movq	%rcx, %rax
+	subq	%r14, %rax
+	movabsq	$-6148914691236517205, %rdx
+	mulq	%rdx
+	cmpq	%r14, %rcx
+	je	.LBB10_21
+	movq	%rdx, %rbx
+	shrq	$4, %rbx
+	addq	$8, %r14
+	movq	_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip), %r15
+	jmp	.LBB10_19
+	.p2align	4
+.LBB10_18:
+	addq	$24, %r14
+	decq	%rbx
+	je	.LBB10_21
+.LBB10_19:
+	movq	-8(%r14), %rsi
+	testq	%rsi, %rsi
+	je	.LBB10_18
+	movq	(%r14), %rdi
+	movl	$1, %edx
+	callq	*%r15
+	jmp	.LBB10_18
+.LBB10_21:
+	movq	176(%rsp), %rax
+	testq	%rax, %rax
+	je	.LBB10_23
+	movq	160(%rsp), %rdi
+	shlq	$3, %rax
+	leaq	(%rax,%rax,2), %rsi
+	movl	$8, %edx
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB10_23:
+	movdqu	96(%rsp), %xmm0
+	movdqa	%xmm0, 64(%rsp)
+	movq	112(%rsp), %rax
+	movq	%rax, 80(%rsp)
+	cmpq	$2, %rax
+	jne	.LBB10_119
+	movq	72(%rsp), %r14
+	movabsq	$1881195675648, %rax
+	movq	%rax, 160(%rsp)
+	movl	$0, 168(%rsp)
+	movw	$0, 172(%rsp)
+	movw	$257, 168(%rsp)
+	movq	32(%r14), %rdx
+	movq	40(%r14), %rcx
+.Ltmp25:
+	leaq	16(%rsp), %r13
+	leaq	160(%rsp), %rsi
+	movq	%r13, %rdi
+	callq	*_ZN3std2fs11OpenOptions5_open17h005de3b10d8796e4E@GOTPCREL(%rip)
+.Ltmp26:
+	cmpl	$1, 16(%rsp)
+	jne	.LBB10_33
+	movq	24(%rsp), %r15
+	movq	(%r14), %rsi
+	testq	%rsi, %rsi
+	je	.LBB10_28
+.LBB10_27:
+	movq	8(%r14), %rdi
+	movl	$1, %edx
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB10_28:
+	movq	24(%r14), %rsi
+	testq	%rsi, %rsi
+	je	.LBB10_30
+	movq	32(%r14), %rdi
+	movl	$1, %edx
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB10_30:
+	movq	64(%rsp), %rax
+	testq	%rax, %rax
+	je	.LBB10_32
+.LBB10_31:
+	shlq	$3, %rax
+	leaq	(%rax,%rax,2), %rsi
+	movl	$8, %edx
+	movq	%r14, %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB10_32:
+	movq	%r15, %rax
+	addq	$2216, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%r12
+	.cfi_def_cfa_offset 40
+	popq	%r13
+	.cfi_def_cfa_offset 32
+	popq	%r14
+	.cfi_def_cfa_offset 24
+	popq	%r15
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	retq
+.LBB10_33:
+	.cfi_def_cfa_offset 2272
+	movl	20(%rsp), %ebx
+.Ltmp27:
+	movl	%ebx, %edi
+	callq	*_ZN7memmap22os8file_len17hd766eed5d43ef05eE@GOTPCREL(%rip)
+.Ltmp28:
+	movq	%rdx, %r15
+	testb	$1, %al
+	je	.LBB10_36
+	movl	$1, %eax
+	testb	$1, %al
+	je	.LBB10_38
+	jmp	.LBB10_40
+.LBB10_36:
+.Ltmp29:
+	movq	%r15, %rdi
+	callq	*_ZN7memmap211MmapOptions12validate_len17h824f5a4379ac05edE@GOTPCREL(%rip)
+.Ltmp30:
+	movq	%rdx, %r15
+	testb	$1, %al
+	jne	.LBB10_40
+.LBB10_38:
+.Ltmp31:
+	leaq	160(%rsp), %rdi
+	movq	%r15, %rsi
+	movl	%ebx, %edx
+	xorl	%ecx, %ecx
+	xorl	%r8d, %r8d
+	xorl	%r9d, %r9d
+	callq	*_ZN7memmap22os9MmapInner7map_mut17hd62ad5be29240376E@GOTPCREL(%rip)
+.Ltmp32:
+	movq	168(%rsp), %r15
+	cmpb	$0, 160(%rsp)
+	je	.LBB10_41
+.LBB10_40:
+	movl	%ebx, %edi
+	callq	*close@GOTPCREL(%rip)
+	movq	(%r14), %rsi
+	testq	%rsi, %rsi
+	jne	.LBB10_27
+	jmp	.LBB10_28
+.LBB10_41:
+	movq	176(%rsp), %rbp
+	movq	%r15, 128(%rsp)
+	movq	%rbp, 136(%rsp)
+	movq	%rbp, %rax
+	andq	$-4, %rax
+	movq	%rax, 8(%rsp)
+	testq	%rbp, %rbp
+	jns	.LBB10_44
+	xorl	%ebp, %ebp
+.LBB10_43:
+.Ltmp41:
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.9(%rip), %rdx
+	movq	%rbp, %rdi
+	movq	8(%rsp), %rsi
+	callq	*_ZN5alloc7raw_vec12handle_error17h5794e6eba25188a7E@GOTPCREL(%rip)
+.Ltmp42:
+	jmp	.LBB10_123
+.LBB10_44:
+	movq	%rbp, %r12
+	shrq	$2, %r12
+	cmpq	$4, %rbp
+	movl	%ebx, 60(%rsp)
+	jae	.LBB10_54
+	leaq	160(%rsp), %rdi
+	xorl	%ebx, %ebx
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movl	$5, %eax
+	.p2align	4
+.LBB10_46:
+	addq	128(%rsp,%rax,8), %rbx
+	movq	%rbx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rbx
+	movq	%rbx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rbx
+	movq	%rbx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rbx
+	movq	%rbx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rbx
+	movq	%rbx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_46
+	movl	$4, %esi
+	movq	%r15, %rdi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	leaq	160(%rsp), %rdi
+	xorl	%ebx, %ebx
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movl	$5, %eax
+	.p2align	4
+.LBB10_48:
+	addq	128(%rsp,%rax,8), %rbx
+	movq	%rbx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rbx
+	movq	%rbx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rbx
+	movq	%rbx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rbx
+	movq	%rbx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rbx
+	movq	%rbx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_48
+	movl	$4, %esi
+	movq	%r15, %rdi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	leaq	160(%rsp), %rdi
+	xorl	%ebx, %ebx
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movl	$5, %eax
+	.p2align	4
+.LBB10_50:
+	addq	128(%rsp,%rax,8), %rbx
+	movq	%rbx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rbx
+	movq	%rbx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rbx
+	movq	%rbx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rbx
+	movq	%rbx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rbx
+	movq	%rbx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_50
+	movl	$4, %esi
+	movq	%r15, %rdi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	leaq	160(%rsp), %rdi
+	xorl	%ebx, %ebx
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movl	$5, %eax
+	.p2align	4
+.LBB10_52:
+	addq	128(%rsp,%rax,8), %rbx
+	movq	%rbx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rbx
+	movq	%rbx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rbx
+	movq	%rbx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rbx
+	movq	%rbx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rbx
+	movq	%rbx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_52
+	movl	$4, %esi
+	movq	%r15, %rdi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	jmp	.LBB10_94
+.LBB10_54:
+	movq	%rbp, 120(%rsp)
+	callq	*_RNvCskdKJRKLKjqM_7___rustc35___rust_no_alloc_shim_is_unstable_v2@GOTPCREL(%rip)
+	movl	$4, %ebp
+	movl	$4, %esi
+	movq	8(%rsp), %rdi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc19___rust_alloc_zeroed@GOTPCREL(%rip)
+	testq	%rax, %rax
+	je	.LBB10_43
+	movq	%rax, %r13
+	leaq	160(%rsp), %rdi
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movq	120(%rsp), %rax
+	leaq	-4(%rax), %rsi
+	movq	%rsi, %rbp
+	shrq	$2, %rbp
+	incq	%rbp
+	movq	%rbp, %rcx
+	movq	%r15, %rax
+	andq	$3, %rcx
+	je	.LBB10_58
+	movq	%r15, %rax
+	.p2align	4
+.LBB10_57:
+	movzbl	(%rax), %edx
+	addq	$4, %rax
+	incq	160(%rsp,%rdx,8)
+	decq	%rcx
+	jne	.LBB10_57
+.LBB10_58:
+	movq	8(%rsp), %rcx
+	leaq	(%r15,%rcx), %rbx
+	cmpq	$12, %rsi
+	jb	.LBB10_60
+	.p2align	4
+.LBB10_59:
+	movzbl	(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	4(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	8(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	12(%rax), %ecx
+	addq	$16, %rax
+	incq	160(%rsp,%rcx,8)
+	cmpq	%rbx, %rax
+	jne	.LBB10_59
+.LBB10_60:
+	movl	$5, %eax
+	movq	160(%rsp), %rcx
+	.p2align	4
+.LBB10_61:
+	addq	128(%rsp,%rax,8), %rcx
+	movq	%rcx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rcx
+	movq	%rcx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rcx
+	movq	%rcx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rcx
+	movq	%rcx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rcx
+	movq	%rcx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_61
+	movq	%rsi, 88(%rsp)
+	movq	8(%rsp), %rax
+	.p2align	4
+.LBB10_63:
+	movl	-4(%r15,%rax), %ecx
+	movzbl	%cl, %esi
+	movq	160(%rsp,%rsi,8), %rdx
+	leaq	-1(%rdx), %rdi
+	movq	%rdi, 160(%rsp,%rsi,8)
+	cmpq	%r12, %rdi
+	jae	.LBB10_111
+	movl	%ecx, -4(%r13,%rdx,4)
+	addq	$-4, %rax
+	jne	.LBB10_63
+	movq	%r15, %rdi
+	movq	%r13, %rsi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	leaq	160(%rsp), %rdi
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movq	%r15, %rax
+	movq	88(%rsp), %rdx
+	testb	$4, %dl
+	jne	.LBB10_67
+	movzbl	1(%r15), %ecx
+	leaq	4(%r15), %rax
+	incq	160(%rsp,%rcx,8)
+.LBB10_67:
+	cmpq	$4, %rdx
+	jb	.LBB10_69
+	.p2align	4
+.LBB10_68:
+	movzbl	1(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	5(%rax), %ecx
+	addq	$8, %rax
+	incq	160(%rsp,%rcx,8)
+	cmpq	%rbx, %rax
+	jne	.LBB10_68
+.LBB10_69:
+	movl	$5, %eax
+	movq	160(%rsp), %rcx
+	.p2align	4
+.LBB10_70:
+	addq	128(%rsp,%rax,8), %rcx
+	movq	%rcx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rcx
+	movq	%rcx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rcx
+	movq	%rcx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rcx
+	movq	%rcx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rcx
+	movq	%rcx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_70
+	movq	8(%rsp), %rax
+	.p2align	4
+.LBB10_72:
+	movl	-4(%r15,%rax), %ecx
+	movzbl	%ch, %esi
+	movq	160(%rsp,%rsi,8), %rdx
+	leaq	-1(%rdx), %rdi
+	movq	%rdi, 160(%rsp,%rsi,8)
+	cmpq	%r12, %rdi
+	jae	.LBB10_111
+	movl	%ecx, -4(%r13,%rdx,4)
+	addq	$-4, %rax
+	jne	.LBB10_72
+	movq	%r15, %rdi
+	movq	%r13, %rsi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	leaq	160(%rsp), %rdi
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movq	%r15, %rax
+	movq	88(%rsp), %rdx
+	testb	$4, %dl
+	jne	.LBB10_76
+	movzbl	2(%r15), %ecx
+	leaq	4(%r15), %rax
+	incq	160(%rsp,%rcx,8)
+.LBB10_76:
+	cmpq	$4, %rdx
+	jb	.LBB10_78
+	.p2align	4
+.LBB10_77:
+	movzbl	2(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	6(%rax), %ecx
+	addq	$8, %rax
+	incq	160(%rsp,%rcx,8)
+	cmpq	%rbx, %rax
+	jne	.LBB10_77
+.LBB10_78:
+	movl	$5, %eax
+	movq	160(%rsp), %rcx
+	.p2align	4
+.LBB10_79:
+	addq	128(%rsp,%rax,8), %rcx
+	movq	%rcx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rcx
+	movq	%rcx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rcx
+	movq	%rcx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rcx
+	movq	%rcx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rcx
+	movq	%rcx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_79
+	movq	8(%rsp), %rax
+	.p2align	4
+.LBB10_81:
+	movl	-4(%r15,%rax), %ecx
+	movl	%ecx, %esi
+	shrl	$13, %esi
+	andl	$2040, %esi
+	movq	160(%rsp,%rsi), %rdx
+	leaq	-1(%rdx), %rdi
+	movq	%rdi, 160(%rsp,%rsi)
+	cmpq	%r12, %rdi
+	jae	.LBB10_111
+	movl	%ecx, -4(%r13,%rdx,4)
+	addq	$-4, %rax
+	jne	.LBB10_81
+	movq	%r15, %rdi
+	movq	%r13, %rsi
+	movq	8(%rsp), %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	leaq	160(%rsp), %rdi
+	movl	$2048, %edx
+	xorl	%esi, %esi
+	callq	*memset@GOTPCREL(%rip)
+	movq	%r15, %rax
+	andq	$3, %rbp
+	je	.LBB10_86
+	movq	%r15, %rax
+	.p2align	4
+.LBB10_85:
+	movzbl	3(%rax), %ecx
+	addq	$4, %rax
+	incq	160(%rsp,%rcx,8)
+	decq	%rbp
+	jne	.LBB10_85
+.LBB10_86:
+	cmpq	$12, 88(%rsp)
+	jb	.LBB10_88
+	.p2align	4
+.LBB10_87:
+	movzbl	3(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	7(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	11(%rax), %ecx
+	incq	160(%rsp,%rcx,8)
+	movzbl	15(%rax), %ecx
+	addq	$16, %rax
+	incq	160(%rsp,%rcx,8)
+	cmpq	%rbx, %rax
+	jne	.LBB10_87
+.LBB10_88:
+	movl	$5, %eax
+	movq	160(%rsp), %rcx
+	.p2align	4
+.LBB10_89:
+	addq	128(%rsp,%rax,8), %rcx
+	movq	%rcx, 128(%rsp,%rax,8)
+	addq	136(%rsp,%rax,8), %rcx
+	movq	%rcx, 136(%rsp,%rax,8)
+	addq	144(%rsp,%rax,8), %rcx
+	movq	%rcx, 144(%rsp,%rax,8)
+	addq	152(%rsp,%rax,8), %rcx
+	movq	%rcx, 152(%rsp,%rax,8)
+	addq	160(%rsp,%rax,8), %rcx
+	movq	%rcx, 160(%rsp,%rax,8)
+	addq	$5, %rax
+	cmpq	$260, %rax
+	jne	.LBB10_89
+	movq	8(%rsp), %rax
+	.p2align	4
+.LBB10_91:
+	movl	-4(%r15,%rax), %ecx
+	movl	%ecx, %esi
+	shrl	$24, %esi
+	movq	160(%rsp,%rsi,8), %rdx
+	leaq	-1(%rdx), %rdi
+	movq	%rdi, 160(%rsp,%rsi,8)
+	cmpq	%r12, %rdi
+	jae	.LBB10_111
+	movl	%ecx, -4(%r13,%rdx,4)
+	addq	$-4, %rax
+	jne	.LBB10_91
+	movq	%r15, %rdi
+	movq	%r13, %rsi
+	movq	8(%rsp), %rbx
+	movq	%rbx, %rdx
+	callq	*memcpy@GOTPCREL(%rip)
+	movl	$4, %edx
+	movq	%r13, %rdi
+	movq	%rbx, %rsi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	leaq	16(%rsp), %r13
+	movq	120(%rsp), %rbp
+.LBB10_94:
+	movq	%rbp, %rdx
+	shrq	$3, %rdx
+	cmpq	%r12, %rdx
+	movl	60(%rsp), %ebx
+	jne	.LBB10_96
+	xorl	%esi, %esi
+	jmp	.LBB10_103
+.LBB10_96:
+	leaq	(,%rdx,4), %rsi
+	subq	%rsi, %rbp
+	movq	%rbp, %rax
+	shrq	$2, %rax
+	cmpq	$16, %rbp
+	jae	.LBB10_98
+	xorl	%esi, %esi
+	xorl	%ecx, %ecx
+	jmp	.LBB10_101
+.LBB10_98:
+	movabsq	$2305843009213693948, %rcx
+	andq	%rax, %rcx
+	addq	%r15, %rsi
+	addq	$8, %rsi
+	pxor	%xmm1, %xmm1
+	xorl	%edi, %edi
+	pxor	%xmm2, %xmm2
+	pxor	%xmm0, %xmm0
+	.p2align	4
+.LBB10_99:
+	movq	-8(%rsi,%rdi,4), %xmm3
+	movq	(%rsi,%rdi,4), %xmm4
+	punpckldq	%xmm1, %xmm3
+	paddq	%xmm3, %xmm2
+	punpckldq	%xmm1, %xmm4
+	paddq	%xmm4, %xmm0
+	addq	$4, %rdi
+	cmpq	%rdi, %rcx
+	jne	.LBB10_99
+	paddq	%xmm2, %xmm0
+	pshufd	$238, %xmm0, %xmm1
+	paddq	%xmm0, %xmm1
+	movq	%xmm1, %rsi
+	cmpq	%rcx, %rax
+	je	.LBB10_103
+.LBB10_101:
+	leaq	(%r15,%rdx,4), %rdx
+	.p2align	4
+.LBB10_102:
+	movl	(%rdx,%rcx,4), %edi
+	addq	%rdi, %rsi
+	incq	%rcx
+	cmpq	%rcx, %rax
+	jne	.LBB10_102
+.LBB10_103:
+	movq	%rsi, 96(%rsp)
+	leaq	96(%rsp), %rax
+	movq	%rax, 16(%rsp)
+	movq	_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h3277f427d6075caeE@GOTPCREL(%rip), %rax
+	movq	%rax, 24(%rsp)
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.12(%rip), %rax
+	movq	%rax, 160(%rsp)
+	movq	$2, 168(%rsp)
+	movq	$0, 192(%rsp)
+	movq	%r13, 176(%rsp)
+	movq	$1, 184(%rsp)
+.Ltmp36:
+	leaq	160(%rsp), %rdi
+	callq	*_ZN3std2io5stdio6_print17h361a6d98ea723aceE@GOTPCREL(%rip)
+.Ltmp37:
+.Ltmp38:
+	leaq	128(%rsp), %rdi
+	callq	*_ZN64_$LT$memmap2..os..MmapInner$u20$as$u20$core..ops..drop..Drop$GT$4drop17h074da4d3d63e8b04E@GOTPCREL(%rip)
+.Ltmp39:
+	movl	%ebx, %edi
+	callq	*close@GOTPCREL(%rip)
+	movq	80(%rsp), %rbx
+	testq	%rbx, %rbx
+	je	.LBB10_110
+	leaq	8(%r14), %r15
+	movq	_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip), %r12
+	jmp	.LBB10_108
+	.p2align	4
+.LBB10_107:
+	addq	$24, %r15
+	decq	%rbx
+	je	.LBB10_110
+.LBB10_108:
+	movq	-8(%r15), %rsi
+	testq	%rsi, %rsi
+	je	.LBB10_107
+	movq	(%r15), %rdi
+	movl	$1, %edx
+	callq	*%r12
+	jmp	.LBB10_107
+.LBB10_110:
+	movq	64(%rsp), %rax
+	xorl	%r15d, %r15d
+	testq	%rax, %rax
+	jne	.LBB10_31
+	jmp	.LBB10_32
+.LBB10_111:
+.Ltmp33:
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.10(%rip), %rdx
+	movq	%r12, %rsi
+	callq	*_ZN4core9panicking18panic_bounds_check17hbc09f5d79f1a5789E@GOTPCREL(%rip)
+.Ltmp34:
+	jmp	.LBB10_123
+.LBB10_112:
+	movq	24(%rsp), %r14
+	movq	40(%rsp), %rcx
+	movq	%rcx, %rax
+	subq	%r14, %rax
+	movabsq	$-6148914691236517205, %rdx
+	mulq	%rdx
+	movq	$0, 64(%rsp)
+	movq	$8, 72(%rsp)
+	movq	$0, 80(%rsp)
+	cmpq	%r14, %rcx
+	jne	.LBB10_115
+.LBB10_113:
+	movq	32(%rsp), %rax
+	testq	%rax, %rax
+	je	.LBB10_120
+	movq	16(%rsp), %rdi
+	shlq	$3, %rax
+	leaq	(%rax,%rax,2), %rsi
+	movl	$8, %edx
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	jmp	.LBB10_120
+.LBB10_115:
+	movq	%rdx, %rbx
+	shrq	$4, %rbx
+	addq	$8, %r14
+	movq	_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip), %r15
+	jmp	.LBB10_117
+	.p2align	4
+.LBB10_116:
+	addq	$24, %r14
+	decq	%rbx
+	je	.LBB10_113
+.LBB10_117:
+	movq	-8(%r14), %rsi
+	testq	%rsi, %rsi
+	je	.LBB10_116
+	movq	(%r14), %rdi
+	movl	$1, %edx
+	callq	*%r15
+	jmp	.LBB10_116
+.LBB10_119:
+	testq	%rax, %rax
+	jne	.LBB10_121
+.LBB10_120:
+.Ltmp50:
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.13(%rip), %rdx
+	xorl	%edi, %edi
+	xorl	%esi, %esi
+	callq	*_ZN4core9panicking18panic_bounds_check17hbc09f5d79f1a5789E@GOTPCREL(%rip)
+.Ltmp51:
+	jmp	.LBB10_123
+.LBB10_121:
+	movq	72(%rsp), %rax
+	movq	%rax, 16(%rsp)
+	leaq	_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h86a528f6a97fe10dE(%rip), %rax
+	movq	%rax, 24(%rsp)
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.16(%rip), %rax
+	movq	%rax, 160(%rsp)
+	movq	$2, 168(%rsp)
+	movq	$0, 192(%rsp)
+	leaq	16(%rsp), %rax
+	movq	%rax, 176(%rsp)
+	movq	$1, 184(%rsp)
+.Ltmp21:
+	leaq	160(%rsp), %rdi
+	callq	*_ZN3std2io5stdio7_eprint17h4ba3eb92d5d637abE@GOTPCREL(%rip)
+.Ltmp22:
+.Ltmp23:
+	movl	$1, %edi
+	callq	*_ZN3std7process4exit17h7875a9b527d14724E@GOTPCREL(%rip)
+.Ltmp24:
+.LBB10_123:
+	ud2
+.LBB10_124:
+.Ltmp40:
+	movq	%rax, %rbp
+	jmp	.LBB10_134
+.LBB10_125:
+.Ltmp14:
+	movq	%rax, %rbp
+	jmp	.LBB10_140
+.LBB10_126:
+.Ltmp35:
+	movq	%rax, %rbp
+	movl	$4, %edx
+	movq	%r13, %rdi
+	movq	8(%rsp), %rsi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	movl	60(%rsp), %ebx
+	jmp	.LBB10_133
+.LBB10_127:
+.Ltmp52:
+	movq	%rax, %rbp
+	leaq	64(%rsp), %rdi
+	callq	_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume@PLT
+.LBB10_128:
+.Ltmp20:
+	movq	%rax, %rbp
+	testq	%r14, %r14
+	je	.LBB10_131
+	movl	$1, %edx
+	movq	%rbx, %rdi
+	movq	%r14, %rsi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	jmp	.LBB10_131
+.LBB10_130:
+.Ltmp17:
+	movq	%rax, %rbp
+.LBB10_131:
+	leaq	160(%rsp), %rdi
+	callq	_ZN4core3ptr35drop_in_place$LT$std..env..Args$GT$17h2e657b3052a94fe9E
+	leaq	96(%rsp), %rdi
+	callq	_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume@PLT
+.LBB10_132:
+.Ltmp43:
+	movq	%rax, %rbp
+.LBB10_133:
+.Ltmp44:
+	leaq	128(%rsp), %rdi
+	callq	*_ZN64_$LT$memmap2..os..MmapInner$u20$as$u20$core..ops..drop..Drop$GT$4drop17h074da4d3d63e8b04E@GOTPCREL(%rip)
+.Ltmp45:
+.LBB10_134:
+	movl	%ebx, %edi
+	callq	*close@GOTPCREL(%rip)
+	leaq	64(%rsp), %rdi
+	callq	_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h1e35bb494b50080dE
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume@PLT
+.LBB10_137:
+.Ltmp46:
+	callq	*_ZN4core9panicking16panic_in_cleanup17h5eff40bcc4481d72E@GOTPCREL(%rip)
+.LBB10_138:
+.Ltmp49:
+	movq	%rax, %rbp
+	testq	%r15, %r15
+	je	.LBB10_140
+	movl	$1, %edx
+	movq	%r12, %rdi
+	movq	%r15, %rsi
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+.LBB10_140:
+	movq	24(%rsp), %r14
+	movq	40(%rsp), %rcx
+	movq	%rcx, %rax
+	subq	%r14, %rax
+	movabsq	$-6148914691236517205, %rdx
+	mulq	%rdx
+	cmpq	%r14, %rcx
+	jne	.LBB10_143
+.LBB10_141:
+	movq	32(%rsp), %rax
+	testq	%rax, %rax
+	jne	.LBB10_147
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume@PLT
+.LBB10_143:
+	movq	%rdx, %rbx
+	shrq	$4, %rbx
+	addq	$8, %r14
+	movq	_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip), %r15
+	jmp	.LBB10_145
+	.p2align	4
+.LBB10_144:
+	addq	$24, %r14
+	decq	%rbx
+	je	.LBB10_141
+.LBB10_145:
+	movq	-8(%r14), %rsi
+	testq	%rsi, %rsi
+	je	.LBB10_144
+	movq	(%r14), %rdi
+	movl	$1, %edx
+	callq	*%r15
+	jmp	.LBB10_144
+.LBB10_147:
+	movq	16(%rsp), %rdi
+	shlq	$3, %rax
+	leaq	(%rax,%rax,2), %rsi
+	movl	$8, %edx
+	callq	*_RNvCskdKJRKLKjqM_7___rustc14___rust_dealloc@GOTPCREL(%rip)
+	movq	%rbp, %rdi
+	callq	_Unwind_Resume@PLT
+.Lfunc_end10:
+	.size	_ZN9team_rust4main17h402c77bd60994244E, .Lfunc_end10-_ZN9team_rust4main17h402c77bd60994244E
+	.cfi_endproc
+	.section	.gcc_except_table._ZN9team_rust4main17h402c77bd60994244E,"a",@progbits
+	.p2align	2, 0x0
+GCC_except_table10:
+.Lexception2:
+	.byte	255
+	.byte	155
+	.uleb128 .Lttbase1-.Lttbaseref1
+.Lttbaseref1:
+	.byte	1
+	.uleb128 .Lcst_end2-.Lcst_begin2
+.Lcst_begin2:
+	.uleb128 .Lfunc_begin2-.Lfunc_begin2
+	.uleb128 .Ltmp12-.Lfunc_begin2
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp12-.Lfunc_begin2
+	.uleb128 .Ltmp13-.Ltmp12
+	.uleb128 .Ltmp14-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp47-.Lfunc_begin2
+	.uleb128 .Ltmp48-.Ltmp47
+	.uleb128 .Ltmp49-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp15-.Lfunc_begin2
+	.uleb128 .Ltmp16-.Ltmp15
+	.uleb128 .Ltmp17-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp18-.Lfunc_begin2
+	.uleb128 .Ltmp19-.Ltmp18
+	.uleb128 .Ltmp20-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp19-.Lfunc_begin2
+	.uleb128 .Ltmp25-.Ltmp19
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp25-.Lfunc_begin2
+	.uleb128 .Ltmp26-.Ltmp25
+	.uleb128 .Ltmp52-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp27-.Lfunc_begin2
+	.uleb128 .Ltmp32-.Ltmp27
+	.uleb128 .Ltmp40-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp41-.Lfunc_begin2
+	.uleb128 .Ltmp42-.Ltmp41
+	.uleb128 .Ltmp43-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp42-.Lfunc_begin2
+	.uleb128 .Ltmp36-.Ltmp42
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp36-.Lfunc_begin2
+	.uleb128 .Ltmp37-.Ltmp36
+	.uleb128 .Ltmp43-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp38-.Lfunc_begin2
+	.uleb128 .Ltmp39-.Ltmp38
+	.uleb128 .Ltmp40-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp39-.Lfunc_begin2
+	.uleb128 .Ltmp33-.Ltmp39
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp33-.Lfunc_begin2
+	.uleb128 .Ltmp34-.Ltmp33
+	.uleb128 .Ltmp35-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp34-.Lfunc_begin2
+	.uleb128 .Ltmp50-.Ltmp34
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp50-.Lfunc_begin2
+	.uleb128 .Ltmp24-.Ltmp50
+	.uleb128 .Ltmp52-.Lfunc_begin2
+	.byte	0
+	.uleb128 .Ltmp24-.Lfunc_begin2
+	.uleb128 .Ltmp44-.Ltmp24
+	.byte	0
+	.byte	0
+	.uleb128 .Ltmp44-.Lfunc_begin2
+	.uleb128 .Ltmp45-.Ltmp44
+	.uleb128 .Ltmp46-.Lfunc_begin2
+	.byte	1
+	.uleb128 .Ltmp45-.Lfunc_begin2
+	.uleb128 .Lfunc_end10-.Ltmp45
+	.byte	0
+	.byte	0
+.Lcst_end2:
+	.byte	127
+	.byte	0
+	.p2align	2, 0x0
+.Lttbase1:
+	.byte	0
+	.p2align	2, 0x0
+
+	.section	.text.main,"ax",@progbits
 	.globl	main
-	.type	main, @function
+	.p2align	4
+	.type	main,@function
 main:
-.LFB9139:
 	.cfi_startproc
-	endbr64	
-	pushq	%rbp	#
+	pushq	%rax
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp	#,
-	.cfi_def_cfa_register 6
-	pushq	%r14	#
-	pushq	%r13	#
-	pushq	%r12	#
-	pushq	%rbx	#
-	.cfi_offset 14, -24
-	.cfi_offset 13, -32
-	.cfi_offset 12, -40
-	.cfi_offset 3, -48
-	movq	%rsi, %rbx	# tmp202, argv
-	andq	$-32, %rsp	#,
-	subq	$160, %rsp	#,
-# team_cpp/main.cpp:218: int main(int argc, char* argv[]) {
-	movq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp208
-	movq	%rax, 152(%rsp)	# tmp208, D.101388
-	xorl	%eax, %eax	# tmp208
-# team_cpp/main.cpp:219:     if (argc != 2) {
-	cmpl	$2, %edi	#, tmp201
-	je	.L73	#,
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	leaq	_ZSt4cerr(%rip), %r12	#, tmp149
-	movl	$7, %edx	#,
-	leaq	.LC1(%rip), %rsi	#, tmp148
-	movq	%r12, %rdi	# tmp149,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# team_cpp/main.cpp:220:         std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
-	movq	(%rbx), %rsi	# *argv_14(D),
-	movq	%r12, %rdi	# tmp149,
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@PLT	#
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	movl	$13, %edx	#,
-	leaq	.LC2(%rip), %rsi	#, tmp151
-# team_cpp/main.cpp:220:         std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
-	movq	%rax, %rbx	# tmp203, _33
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	movq	%rax, %rdi	# _33,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	movq	%rbx, %rdi	# _33,
-	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-.L74:
-# team_cpp/main.cpp:221:         return 1;
-	movl	$1, %eax	#, <retval>
-.L72:
-# team_cpp/main.cpp:275: }
-	movq	152(%rsp), %rdx	# D.101388, tmp209
-	subq	%fs:40, %rdx	# MEM[(<address-space-1> long unsigned int *)40B], tmp209
-	jne	.L99	#,
-	leaq	-32(%rbp), %rsp	#,
-	popq	%rbx	#
-	popq	%r12	#
-	popq	%r13	#
-	popq	%r14	#
-	popq	%rbp	#
-	.cfi_remember_state
-	.cfi_def_cfa 7, 8
-	ret	
-.L73:
-	.cfi_restore_state
-# /usr/include/x86_64-linux-gnu/bits/fcntl2.h:53:       return __open_alias (__path, __oflag, __va_arg_pack ());
-	movq	8(%rsi), %rdi	# MEM[(char * *)argv_14(D) + 8B], MEM[(char * *)argv_14(D) + 8B]
-	xorl	%eax, %eax	#
-	xorl	%esi, %esi	#
-	call	open@PLT	#
-	movl	%eax, %ebx	# tmp204, _35
-# team_cpp/main.cpp:228:     if (fd == -1) {
-	cmpl	$-1, %eax	#, _35
-	je	.L100	#,
-# team_cpp/main.cpp:235:     if (fstat(fd, &sb) == -1) {
-	movq	%rsp, %rsi	#, tmp156
-	movl	%eax, %edi	# _35,
-	call	fstat@PLT	#
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	movl	$23, %edx	#,
-	leaq	.LC4(%rip), %rsi	#, tmp157
-# team_cpp/main.cpp:235:     if (fstat(fd, &sb) == -1) {
-	incl	%eax	# tmp205
-	je	.L98	#,
-# team_cpp/main.cpp:241:     size_t file_size = sb.st_size;
-	movq	48(%rsp), %r13	# sb.st_size, file_size
-# team_cpp/main.cpp:245:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
-	xorl	%r9d, %r9d	#
-	movl	%ebx, %r8d	# _35,
-	movl	$32770, %ecx	#,
-	movl	$3, %edx	#,
-	xorl	%edi, %edi	#
-	movq	%r13, %rsi	# file_size,
-# team_cpp/main.cpp:242:     size_t num_integers = file_size / sizeof(uint32_t);
-	movq	%r13, %r14	# file_size, num_integers
-# team_cpp/main.cpp:245:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
-	call	mmap@PLT	#
-# team_cpp/main.cpp:242:     size_t num_integers = file_size / sizeof(uint32_t);
-	shrq	$2, %r14	#, num_integers
-# team_cpp/main.cpp:245:     void* mapped = mmap(nullptr, file_size, PROT_READ | PROT_WRITE,
-	movq	%rax, %r12	# tmp206, mapped
-# team_cpp/main.cpp:247:     if (mapped == MAP_FAILED) {
-	cmpq	$-1, %rax	#, mapped
-	je	.L101	#,
-# team_cpp/main.cpp:254:     madvise(mapped, file_size, MADV_SEQUENTIAL | MADV_WILLNEED);
-	movl	$3, %edx	#,
-	movq	%r13, %rsi	# file_size,
-	movq	%rax, %rdi	# mapped,
-	call	madvise@PLT	#
-# team_cpp/main.cpp:256:     close(fd);
-	movl	%ebx, %edi	# _35,
-	call	close@PLT	#
-# team_cpp/main.cpp:261:     radix_sort(numbers, num_integers);
-	movq	%r14, %rsi	# num_integers,
-	movq	%r12, %rdi	# mapped,
-	call	_Z10radix_sortPjm	#
-# team_cpp/main.cpp:264:     size_t top_half_start = num_integers / 2;
-	movq	%r13, %rcx	# file_size, top_half_start
-	shrq	$3, %rcx	#, top_half_start
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	cmpq	%r14, %rcx	# num_integers, top_half_start
-	jnb	.L87	#,
-	movq	%r14, %rdx	# num_integers, niters.170
-	subq	%rcx, %rdx	# top_half_start, niters.170
-	leaq	-1(%rdx), %rax	#, tmp163
-	cmpq	$6, %rax	#, tmp163
-	jbe	.L88	#,
-	movq	%rdx, %rsi	# niters.170, bnd.171
-	leaq	(%r12,%rcx,4), %rax	#, ivtmp.197
-	vpxor	%xmm2, %xmm2, %xmm2	# vect_sum_28.179
-	shrq	$3, %rsi	#, bnd.171
-	salq	$5, %rsi	#, tmp166
-	addq	%rax, %rsi	# ivtmp.197, _111
-	.p2align 4,,10
-	.p2align 3
-.L81:
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	vmovdqu	(%rax), %ymm0	# MEM <vector(8) unsigned int> [(uint32_t *)_50], MEM <vector(8) unsigned int> [(uint32_t *)_50]
-	addq	$32, %rax	#, ivtmp.197
-	vpmovzxdq	%xmm0, %ymm1	# MEM <vector(8) unsigned int> [(uint32_t *)_50],
-	vextracti128	$0x1, %ymm0, %xmm0	# MEM <vector(8) unsigned int> [(uint32_t *)_50], tmp171
-	vpmovzxdq	%xmm0, %ymm0	# tmp171, vect__7.178
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	vpaddq	%ymm0, %ymm1, %ymm0	# vect__7.178, vect__7.178, tmp172
-	vpaddq	%ymm0, %ymm2, %ymm2	# tmp172, vect_sum_28.179, vect_sum_28.179
-	cmpq	%rsi, %rax	# _111, ivtmp.197
-	jne	.L81	#,
-	vmovdqa	%xmm2, %xmm0	# vect_sum_28.179, tmp173
-	vextracti64x2	$0x1, %ymm2, %xmm2	# vect_sum_28.179, tmp174
-	movq	%rdx, %rsi	# niters.170, niters_vector_mult_vf.172
-	vpaddq	%xmm2, %xmm0, %xmm2	# tmp174, tmp173, _84
-	andq	$-8, %rsi	#, niters_vector_mult_vf.172
-	vpsrldq	$8, %xmm2, %xmm0	#, _84, tmp176
-	leaq	(%rcx,%rsi), %rax	#, tmp.184
-	vpaddq	%xmm0, %xmm2, %xmm0	# tmp176, _84, tmp177
-	vmovq	%xmm0, %rbx	# tmp177, stmp_sum_53.191
-	testb	$7, %dl	#, niters.170
-	je	.L102	#,
-	vzeroupper
-.L80:
-	subq	%rsi, %rdx	# niters_vector_mult_vf.172, niters.181
-	leaq	-1(%rdx), %rdi	#, tmp179
-	cmpq	$2, %rdi	#, tmp179
-	jbe	.L84	#,
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rsi, %rcx	# niters_vector_mult_vf.172, tmp180
-	vmovdqu	(%r12,%rcx,4), %xmm1	# MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116], MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116]
-	movq	%rdx, %rcx	# niters.181, niters_vector_mult_vf.183
-	andq	$-4, %rcx	#, niters_vector_mult_vf.183
-	vpmovzxdq	%xmm1, %xmm0	# MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116], vect__54.189
-	vpsrldq	$8, %xmm1, %xmm1	#, MEM <vector(4) unsigned int> [(uint32_t *)vectp.187_116], tmp184
-	addq	%rcx, %rax	# niters_vector_mult_vf.183, tmp.184
-	andb	$3, %dl	#, niters.181
-	vpmovzxdq	%xmm1, %xmm1	# tmp184, vect__54.189
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	vpaddq	%xmm1, %xmm0, %xmm0	# vect__54.189, vect__54.189, tmp185
-	vpaddq	%xmm2, %xmm0, %xmm0	# _84, tmp185, vect_sum_53.190
-	vpsrldq	$8, %xmm0, %xmm1	#, vect_sum_53.190, tmp187
-	vpaddq	%xmm1, %xmm0, %xmm0	# tmp187, vect_sum_53.190, tmp188
-	vmovq	%xmm0, %rbx	# tmp188, stmp_sum_53.191
-	je	.L79	#,
-.L84:
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	movl	(%r12,%rax,4), %ecx	# *_5, *_5
-	leaq	0(,%rax,4), %rdx	#, _4
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rcx, %rbx	# *_5, stmp_sum_53.191
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	leaq	1(%rax), %rcx	#, i
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	cmpq	%r14, %rcx	# num_integers, i
-	jnb	.L79	#,
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	movl	4(%r12,%rdx), %ecx	# *_56, *_56
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	addq	$2, %rax	#, i
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rcx, %rbx	# *_56, stmp_sum_53.191
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	cmpq	%r14, %rax	# num_integers, i
-	jnb	.L79	#,
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	movl	8(%r12,%rdx), %eax	# *_96, *_96
-# team_cpp/main.cpp:267:         sum += numbers[i];
-	addq	%rax, %rbx	# *_96, stmp_sum_53.191
-.L79:
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	leaq	_ZSt4cout(%rip), %r14	#, tmp197
-	movl	$16, %edx	#,
-	leaq	.LC6(%rip), %rsi	#, tmp196
-	movq	%r14, %rdi	# tmp197,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# /usr/include/c++/13/ostream:173:       { return _M_insert(__n); }
-	movq	%rbx, %rsi	# stmp_sum_53.191,
-	movq	%r14, %rdi	# tmp197,
-	call	_ZNSo9_M_insertImEERSoT_@PLT	#
-	movq	%rax, %rdi	# tmp207, _36
-# /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-# team_cpp/main.cpp:272:     munmap(mapped, file_size);
-	movq	%r13, %rsi	# file_size,
-	movq	%r12, %rdi	# mapped,
-	call	munmap@PLT	#
-# team_cpp/main.cpp:274:     return 0;
-	xorl	%eax, %eax	# <retval>
-	jmp	.L72	#
-.L101:
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	movl	$19, %edx	#,
-	leaq	.LC5(%rip), %rsi	#, tmp160
-.L98:
-	leaq	_ZSt4cerr(%rip), %r12	#, tmp161
-	movq	%r12, %rdi	# tmp161,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	movq	%r12, %rdi	# tmp161,
-	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-# team_cpp/main.cpp:249:         close(fd);
-	movl	%ebx, %edi	# _35,
-	call	close@PLT	#
-# team_cpp/main.cpp:250:         return 1;
-	jmp	.L74	#
-.L100:
-# /usr/include/c++/13/ostream:667: 	__ostream_insert(__out, __s,
-	leaq	_ZSt4cerr(%rip), %rbx	#, tmp154
-	movl	$19, %edx	#,
-	leaq	.LC3(%rip), %rsi	#, tmp153
-	movq	%rbx, %rdi	# tmp154,
-	call	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@PLT	#
-# /usr/include/c++/13/ostream:115: 	return __pf(*this);
-	movq	%rbx, %rdi	# tmp154,
-	call	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.isra.0	#
-# team_cpp/main.cpp:230:         return 1;
-	jmp	.L74	#
-.L102:
-	vzeroupper
-	jmp	.L79	#
-.L87:
-# team_cpp/main.cpp:265:     uint64_t sum = 0;
-	xorl	%ebx, %ebx	# stmp_sum_53.191
-	jmp	.L79	#
-.L88:
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	movq	%rcx, %rax	# top_half_start, tmp.184
-# team_cpp/main.cpp:266:     for (size_t i = top_half_start; i < num_integers; ++i) {
-	vpxor	%xmm2, %xmm2, %xmm2	# _84
-	xorl	%esi, %esi	# niters_vector_mult_vf.172
-# team_cpp/main.cpp:265:     uint64_t sum = 0;
-	xorl	%ebx, %ebx	# stmp_sum_53.191
-	jmp	.L80	#
-.L99:
-# team_cpp/main.cpp:275: }
-	call	__stack_chk_fail@PLT	#
+	movq	%rsi, %rcx
+	movslq	%edi, %rdx
+	leaq	_ZN9team_rust4main17h402c77bd60994244E(%rip), %rax
+	movq	%rax, (%rsp)
+	leaq	.Lanon.3578c391ee08de324a52794ca63aee32.0(%rip), %rsi
+	movq	%rsp, %rdi
+	xorl	%r8d, %r8d
+	callq	*_ZN3std2rt19lang_start_internal17h6ba36b077a531782E@GOTPCREL(%rip)
+	popq	%rcx
+	.cfi_def_cfa_offset 8
+	retq
+.Lfunc_end11:
+	.size	main, .Lfunc_end11-main
 	.cfi_endproc
-.LFE9139:
-	.size	main, .-main
-	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
-	.section	.note.GNU-stack,"",@progbits
-	.section	.note.gnu.property,"a"
-	.align 8
-	.long	1f - 0f
-	.long	4f - 1f
-	.long	5
-0:
-	.string	"GNU"
-1:
-	.align 8
-	.long	0xc0000002
-	.long	3f - 2f
-2:
-	.long	0x3
-3:
-	.align 8
-4:
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.0,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.0,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.0:
+	.asciz	"\000\000\000\000\000\000\000\000\b\000\000\000\000\000\000\000\b\000\000\000\000\000\000"
+	.quad	_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcaafc0d95b4eb0d5E
+	.quad	_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E
+	.quad	_ZN3std2rt10lang_start28_$u7b$$u7b$closure$u7d$$u7d$17h4d58629fa5312bd8E
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.0, 48
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.1,@object
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.Lanon.3578c391ee08de324a52794ca63aee32.1:
+	.asciz	"/rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library/core/src/iter/traits/iterator.rs"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.1, 89
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.2,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.2,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.2:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.1
+	.asciz	"X\000\000\000\000\000\000\000\353\007\000\000\t\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.2, 24
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.3,@object
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.Lanon.3578c391ee08de324a52794ca63aee32.3:
+	.asciz	"/rustc/ed61e7d7e242494fb7057f2657300d9e77bb4fcb/library/alloc/src/raw_vec/mod.rs"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.3, 81
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.4,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.4,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.4:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.3
+	.asciz	"P\000\000\000\000\000\000\000*\002\000\000\021\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.4, 24
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.5,@object
+	.section	.rodata..Lanon.3578c391ee08de324a52794ca63aee32.5,"a",@progbits
+.Lanon.3578c391ee08de324a52794ca63aee32.5:
+	.ascii	"Error: "
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.5, 7
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.6,@object
+	.section	.rodata..Lanon.3578c391ee08de324a52794ca63aee32.6,"a",@progbits
+.Lanon.3578c391ee08de324a52794ca63aee32.6:
+	.byte	10
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.6, 1
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.7,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.7,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.7:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.5
+	.asciz	"\007\000\000\000\000\000\000"
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.6
+	.asciz	"\001\000\000\000\000\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.7, 32
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.8,@object
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.Lanon.3578c391ee08de324a52794ca63aee32.8:
+	.asciz	"src/main.rs"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.8, 12
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.9,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.9,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.9:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.8
+	.asciz	"\013\000\000\000\000\000\000\000\t\000\000\000\024\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.9, 24
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.10,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.10,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.10:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.8
+	.asciz	"\013\000\000\000\000\000\000\000\036\000\000\000\021\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.10, 24
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.11,@object
+	.section	.rodata.cst16,"aM",@progbits,16
+.Lanon.3578c391ee08de324a52794ca63aee32.11:
+	.ascii	"Sum of top 50%: "
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.11, 16
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.12,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.12,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.12:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.11
+	.asciz	"\020\000\000\000\000\000\000"
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.6
+	.asciz	"\001\000\000\000\000\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.12, 32
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.13,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.13,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.13:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.8
+	.asciz	"\013\000\000\000\000\000\000\000)\000\000\0001\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.13, 24
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.14,@object
+	.section	.rodata..Lanon.3578c391ee08de324a52794ca63aee32.14,"a",@progbits
+.Lanon.3578c391ee08de324a52794ca63aee32.14:
+	.ascii	"Usage: "
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.14, 7
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.15,@object
+	.section	.rodata..Lanon.3578c391ee08de324a52794ca63aee32.15,"a",@progbits
+.Lanon.3578c391ee08de324a52794ca63aee32.15:
+	.ascii	" <input_file>\n"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.15, 14
+
+	.type	.Lanon.3578c391ee08de324a52794ca63aee32.16,@object
+	.section	.data.rel.ro..Lanon.3578c391ee08de324a52794ca63aee32.16,"aw",@progbits
+	.p2align	3, 0x0
+.Lanon.3578c391ee08de324a52794ca63aee32.16:
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.14
+	.asciz	"\007\000\000\000\000\000\000"
+	.quad	.Lanon.3578c391ee08de324a52794ca63aee32.15
+	.asciz	"\016\000\000\000\000\000\000"
+	.size	.Lanon.3578c391ee08de324a52794ca63aee32.16, 32
+
+	.hidden	DW.ref.rust_eh_personality
+	.weak	DW.ref.rust_eh_personality
+	.section	.data.DW.ref.rust_eh_personality,"awG",@progbits,DW.ref.rust_eh_personality,comdat
+	.p2align	3, 0x0
+	.type	DW.ref.rust_eh_personality,@object
+	.size	DW.ref.rust_eh_personality, 8
+DW.ref.rust_eh_personality:
+	.quad	rust_eh_personality
+	.ident	"rustc version 1.91.1 (ed61e7d7e 2025-11-07)"
+	.section	".note.GNU-stack","",@progbits

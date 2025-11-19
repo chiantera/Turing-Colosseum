@@ -14,7 +14,10 @@
 // 1 = SIMD-accelerated counting (AVX2)
 // 2 = Cache-blocked radix sort
 // 3 = American Flag Sort (in-place radix variant)
-#define VARIANT 2
+// 4 = 16-bit radix (2 passes, 256KB histogram)
+// 5 = Prefetch-optimized radix
+// 6 = Hybrid: pdqsort
+#define VARIANT 6
 
 #if VARIANT == 0
 // ===== VARIANT 0: ORIGINAL RADIX SORT =====
@@ -211,6 +214,94 @@ void american_flag_sort(uint32_t* arr, size_t n, int shift) {
 
 void radix_sort(uint32_t* arr, size_t n) {
     american_flag_sort(arr, n, 24);
+}
+
+#elif VARIANT == 4
+// ===== VARIANT 4: 16-BIT RADIX (2 PASSES) =====
+// Hypothesis: Reduce passes from 4 to 2, halve memory bandwidth
+
+__attribute__((always_inline))
+inline void radix_pass_16bit(uint32_t* __restrict__ src, uint32_t* __restrict__ dst, size_t n, int shift) {
+    alignas(64) size_t count[65536] = {0};
+
+    // Count phase - blocked for cache
+    constexpr size_t BLOCK = 8192;
+    for (size_t block_start = 0; block_start < n; block_start += BLOCK) {
+        size_t block_end = std::min(block_start + BLOCK, n);
+        for (size_t i = block_start; i < block_end; ++i) {
+            ++count[(src[i] >> shift) & 0xFFFF];
+        }
+    }
+
+    // Prefix sum
+    for (size_t i = 1; i < 65536; ++i) {
+        count[i] += count[i - 1];
+    }
+
+    // Distribution
+    for (size_t i = n; i-- > 0; ) {
+        uint16_t key = (src[i] >> shift) & 0xFFFF;
+        dst[--count[key]] = src[i];
+    }
+}
+
+void radix_sort(uint32_t* arr, size_t n) {
+    uint32_t* temp = new uint32_t[n];
+
+    // Only 2 passes: lower 16 bits, upper 16 bits
+    radix_pass_16bit(arr, temp, n, 0);
+    radix_pass_16bit(temp, arr, n, 16);
+
+    delete[] temp;
+}
+
+#elif VARIANT == 5
+// ===== VARIANT 5: PREFETCH-OPTIMIZED =====
+// Hypothesis: Explicit prefetching reduces memory stalls
+
+__attribute__((always_inline))
+inline void radix_pass_prefetch(uint32_t* __restrict__ src, uint32_t* __restrict__ dst, size_t n, int shift) {
+    alignas(64) size_t count[256] = {0};
+
+    // Count with prefetching
+    constexpr size_t PREFETCH_DISTANCE = 64; // Cache lines ahead
+    for (size_t i = 0; i < n; ++i) {
+        if (i + PREFETCH_DISTANCE < n) {
+            __builtin_prefetch(&src[i + PREFETCH_DISTANCE], 0, 3);
+        }
+        ++count[(src[i] >> shift) & 0xFF];
+    }
+
+    // Prefix sum
+    for (size_t i = 1; i < 256; ++i) {
+        count[i] += count[i - 1];
+    }
+
+    // Distribution with prefetching
+    for (size_t i = n; i-- > 0; ) {
+        if (i >= PREFETCH_DISTANCE) {
+            __builtin_prefetch(&src[i - PREFETCH_DISTANCE], 0, 3);
+        }
+        uint8_t byte = (src[i] >> shift) & 0xFF;
+        dst[--count[byte]] = src[i];
+    }
+}
+
+void radix_sort(uint32_t* arr, size_t n) {
+    uint32_t* temp = new uint32_t[n];
+    radix_pass_prefetch(arr, temp, n, 0);
+    radix_pass_prefetch(temp, arr, n, 8);
+    radix_pass_prefetch(arr, temp, n, 16);
+    radix_pass_prefetch(temp, arr, n, 24);
+    delete[] temp;
+}
+
+#elif VARIANT == 6
+// ===== VARIANT 6: PDQSORT (STL HYBRID) =====
+// Hypothesis: Leverage C++ standard library optimizations
+
+void radix_sort(uint32_t* arr, size_t n) {
+    std::sort(arr, arr + n);
 }
 
 #endif
