@@ -21,7 +21,7 @@ def generate_test_data():
 def compile_agents():
     """Compiles both teams' code."""
     results = {}
-    
+
     # Team Rustacean (Rust)
     if os.path.exists("team_rust/Cargo.toml"):
         print("🦀 Compiling Team Rustacean...")
@@ -33,6 +33,9 @@ def compile_agents():
         else:
             print(f"✅ Rust Compiled in {time.time() - start:.2f}s")
             results['rust'] = True
+            # Generate assembly for forensics
+            subprocess.run(["cargo", "rustc", "--release", "--manifest-path", "team_rust/Cargo.toml", "--", "--emit=asm"],
+                         capture_output=True)
     else:
         print("⚠️ Team Rustacean code not found.")
         results['rust'] = False
@@ -50,10 +53,13 @@ def compile_agents():
         else:
             print(f"✅ C++ Compiled in {time.time() - start:.2f}s")
             results['cpp'] = True
+            # Generate assembly for forensics
+            subprocess.run(["g++", "-O3", "-march=native", "-pthread", "-S", "-fverbose-asm",
+                          "team_cpp/main.cpp", "-o", "team_cpp/main.s"], capture_output=True)
     else:
         print("⚠️ Team SpeedDemon code not found.")
         results['cpp'] = False
-        
+
     return results
 
 def run_benchmark(executable_path):
@@ -104,6 +110,32 @@ def main():
         # Write verdict to file for Claude to read
         with open("verdict.txt", "w") as f:
             f.write(f"WINNER:{winner}\nLOSER:{loser}\nTARGET_MS:{scores[winner_key]}\n")
+
+        # Generate execution profile (assembly of loser)
+        with open("execution_profile.txt", "w") as f:
+            f.write(f"=== ASSEMBLY FORENSICS: Team {loser} ===\n")
+            f.write(f"Performance Gap: {diff:.4f} ms\n")
+            f.write(f"Target to Beat: {scores[winner_key]:.4f} ms\n\n")
+
+            if loser == "SpeedDemon":
+                asm_path = "team_cpp/main.s"
+                if os.path.exists(asm_path):
+                    with open(asm_path, "r") as asm:
+                        f.write(asm.read())
+                else:
+                    f.write("Assembly not generated\n")
+            else:  # Rust loser
+                # Find rust assembly in target/release/deps
+                asm_dir = "team_rust/target/release/deps"
+                if os.path.exists(asm_dir):
+                    asm_files = [f for f in os.listdir(asm_dir) if f.endswith('.s')]
+                    if asm_files:
+                        with open(os.path.join(asm_dir, asm_files[0]), "r") as asm:
+                            f.write(asm.read())
+                    else:
+                        f.write("Assembly not generated\n")
+                else:
+                    f.write("Assembly directory not found\n")
             
     else:
         print("❌ Match cancelled due to compilation errors.")
